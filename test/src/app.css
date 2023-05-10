@@ -1,0 +1,20 @@
+h1 {
+  font-family: 'IM Fell DP Pro';
+  color: white;
+}
+
+/* Fonts */
+@font-face {
+  font-family: 'hultog.regular';
+  src: url('/fonts/hultog.regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'hultog.italic';
+  src: url('/fonts/hultog.italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IM Fell DP Pro';
+  src: url('/fonts/IMFeDPrm29C.otf') format('opentype');
+}
