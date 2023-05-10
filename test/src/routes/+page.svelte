@@ -1,6 +1,7 @@
 <script>
 	import { intros } from "svelte/internal";
   import { onMount } from 'svelte';
+  import { equipmentStore } from './stores';
 
   let hp = 0;
   let inventory = []
@@ -74,6 +75,9 @@
     }
     console.log("get Starter package called ", equipmentSlot);
     updateGridItems();
+    equipmentStore.subscribe(value => {
+      console.log(value);
+    });
     return starterPackages[i][j];
   }
 

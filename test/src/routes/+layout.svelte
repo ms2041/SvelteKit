@@ -1,7 +1,7 @@
 <script>
     import '../app.css';
     import { writable } from 'svelte/store';
-    export const equipmentStore = writable(["", "", "", "", "", "", "", "", ""]);
+    import { equipmentStore } from './stores';
 </script>
 
 <style>
