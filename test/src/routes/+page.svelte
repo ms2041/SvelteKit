@@ -1,7 +1,6 @@
 <script>
 	import { intros } from "svelte/internal";
   import { onMount } from 'svelte';
-  import { equipmentStore } from './+layout.svelte';
 
   let hp = 0;
   let inventory = []
@@ -50,7 +49,6 @@
   }
 
   function updateGridItems() {
-    const equipmentSlots = $equipmentStore;
     for (let i = 0; i < equipmentSlot.length; i++) {
       const gridItem = document.getElementById(`equipmentSlot-${i}`);
       gridItem.textContent = equipmentSlot[i];
