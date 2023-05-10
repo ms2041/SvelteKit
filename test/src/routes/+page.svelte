@@ -50,6 +50,7 @@
   }
 
   function updateGridItems() {
+    const equipmentSlots = $equipmentStore;
     for (let i = 0; i < equipmentSlot.length; i++) {
       const gridItem = document.getElementById(`equipmentSlot-${i}`);
       gridItem.textContent = equipmentSlot[i];
