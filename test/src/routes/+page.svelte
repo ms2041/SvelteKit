@@ -1,5 +1,7 @@
 <script>
 	import { intros } from "svelte/internal";
+  import { onMount } from 'svelte';
+  import { equipmentStore } from './+layout.svelte';
 
   let hp = 0;
   let inventory = []
@@ -12,6 +14,7 @@
                    money: 0};
   let myCharacter = character;
 
+  const equipmentSlot = ["", "", "", "", "", "", "", "", ""];
 
   let starterPackages = [[['Sword', 'Pistol', 'Armour', 'Sense nearby unearthly beings'],
                          ['Musket', 'Sword', 'Flashbang', 'Sense nearby Arcana'],
@@ -46,6 +49,13 @@
     return (getRandomInt(6) + 1 + getRandomInt(6) + 1 + getRandomInt(6) + 1);
   }
 
+  function updateGridItems() {
+    for (let i = 0; i < equipmentSlot.length; i++) {
+      const gridItem = document.getElementById(`equipmentSlot-${i}`);
+      gridItem.textContent = equipmentSlot[i];
+    }
+  }
+
   function makeCharacter(character) {
     character.str = getRandom3d6();
     character.dex = getRandom3d6();
@@ -57,14 +67,23 @@
   }
 
   function getStarterPackage() {
-    console.log("get Starter package called");
     let i = getRandomInt(3);
     let j = getRandomInt(6);
+    let equipment = starterPackages[i][j];
+    for (let k=0; k<equipmentSlot.length; k++) {
+      equipmentSlot[k] = equipment[k];
+    }
+    console.log("get Starter package called ", equipmentSlot);
+    updateGridItems();
     return starterPackages[i][j];
   }
-</script>
 
-<h1>Into the Odd</h1>
+  onMount(() => {
+    updateGridItems();
+});
+
+
+</script>
 
 <button on:click={() => {
   myCharacter = makeCharacter(character);}}>
