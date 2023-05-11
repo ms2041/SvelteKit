@@ -1,7 +1,7 @@
 <script>
     import '../app.css';
     import { writable } from 'svelte/store';
-    import { equipmentStore } from './stores';
+    import { equipmentStore, getStarterPackage, myCharacter, makeCharacter } from './stores';
 </script>
 
 <style>
@@ -67,6 +67,7 @@
   display: flex;
   align-items: center;
   text-align: left;
+  font-size: 16px;
 }
 
 .grid-item-money {
@@ -105,6 +106,14 @@
     color:antiquewhite;
   }
 
+  #equipment {
+    cursor: pointer;
+  }
+
+  #abilities {
+    cursor: pointer;
+  }
+
   </style>
   
   <body class="my-body">
@@ -121,53 +130,61 @@
       <slot></slot>
 
       <div class="grid-container">
-        <div class="grid-heading" id="abilities">ABILITIES</div>
-        <div class="grid-heading" id="equipment">EQUIPMENT</div>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <div class="grid-heading" id="abilities" on:click={() => {
+          makeCharacter(myCharacter);
+        }}>ABILITIES</div>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <div class="grid-heading" id="equipment" on:click={() => {
+          getStarterPackage();
+        }}>
+          EQUIPMENT
+        </div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-heading" id="arcana">ARCANA</div>
         <div class="grid-heading" id="money">MONEY</div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">STR</div>
-          <div class="sub-grid-item">16</div>
+          <div class="sub-grid-item" id="str"></div>
         </div>
-        <div class="grid-item" id="equipmentSlot-0">Claymore (d8 B)</div>
-        <div class="grid-item" id="equipmentSlot-1">Poison</div>
-        <div class="grid-item" id="equipmentSlot-2">Shovel</div>
-        <div class="grid-item">Pierced Heart</div>
+        <div class="grid-item" id="equipmentSlot-0"></div>
+        <div class="grid-item" id="equipmentSlot-1"></div>
+        <div class="grid-item" id="equipmentSlot-2"></div>
+        <div class="grid-item" id="arcanaSlot-0"></div>
         <div class="grid-item-money">
-          <div class="sub-grid-item">12S</div>
-          <div class="sub-grid-item">36C</div>
-          <div class="sub-grid-item">3G</div>
+          <div class="sub-grid-item">0S</div>
+          <div class="sub-grid-item">0C</div>
+          <div class="sub-grid-item">0G</div>
         </div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">DEX</div>
-          <div class="sub-grid-item">9</div>
+          <div class="sub-grid-item" id="dex"></div>
         </div>
         <div class="grid-item" id="equipmentSlot-3">14</div>
         <div class="grid-item" id="equipmentSlot-4">15</div>
         <div class="grid-item" id="equipmentSlot-5">16</div>
-        <div class="grid-item">17</div>
-        <div class="grid-item">18</div>
+        <div class="grid-item" id="arcanaSlot-1"></div>
+        <div class="grid-item"></div>
         <div class="grid-item-ability">
-          <div class="sub-grid-item">WIS</div>
-          <div class="sub-grid-item">10</div>
+          <div class="sub-grid-item">WIL</div>
+          <div class="sub-grid-item" id="wil"></div>
         </div>
         <div class="grid-item" id="equipmentSlot-6">20</div>
         <div class="grid-item" id="equipmentSlot-7">21</div>
         <div class="grid-item" id="equipmentSlot-8">22</div>
-        <div class="grid-item">23</div>
-        <div class="grid-item">24</div>
+        <div class="grid-item" id="arcanaSlot-2"></div>
+        <div class="grid-item"></div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">HP</div>
-          <div class="sub-grid-item">4</div>
+          <div class="sub-grid-item" id="hp"></div>
         </div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
+        <div class="grid-item" id="arcanaSlot-3"></div>
         <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
+        <div class="grid-item" id="special-info"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>

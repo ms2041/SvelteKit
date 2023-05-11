@@ -18,3 +18,10 @@ h1 {
   font-family: 'IM Fell DP Pro';
   src: url('/fonts/IMFeDPrm29C.otf') format('opentype');
 }
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
