@@ -38,14 +38,14 @@
     transform: translateX(-50%);
 }
 
-.grid-item {
-  /*background-color: #141414;*/
-  /*border: 1px solid #282828;*/
-  font-family: 'hultog.italic';
-  display: flex;
-  align-items: center;
-  text-align: left;
-}
+  .grid-item {
+    /*background-color: #141414;*/
+    /*border: 1px solid #282828;*/
+    font-family: 'hultog.italic';
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
 
 .grid-heading {
   /*background-color: #141414;*/
@@ -54,27 +54,27 @@
   font-size: 20px;
 }
 
-.grid-item-ability {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-}
+  .grid-item-ability {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
 
-.sub-grid-item {
-  /*background-color: #141414;*/
-  /*border: 1px solid #282828;*/
-  font-family: 'hultog.italic';
-  display: flex;
-  align-items: center;
-  text-align: left;
-  font-size: 16px;
-}
+  .sub-grid-item {
+    /*background-color: #141414;*/
+    /*border: 1px solid #282828;*/
+    font-family: 'hultog.italic';
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-size: 16px;
+  }
 
-.grid-item-money {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-}
+  .grid-item-money {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
 
   .title {
     position: relative;
@@ -83,6 +83,7 @@
     text-align: center;
     width: 100%;
     color: white;
+    letter-spacing: 10px;
   }
 
   .title-divider {
@@ -94,11 +95,14 @@
 
   .sub-title {
     position: absolute;
-    top: 64px;
-    font-size: 8px; /* adjust to your desired size */
+    top: 72px;
+    font-size: 18px; /* adjust to your desired size */
     text-align: center;
     width: 100%;
     color: white;
+    font-family: 'hultog.regular';
+    letter-spacing: 2px;
+
   }
 
   :global(html) {
@@ -107,14 +111,14 @@
   }
 
   #equipment {
-    cursor: pointer;
+     cursor: pointer;
   }
 
   #abilities {
     cursor: pointer;
   }
 
-  </style>
+</style>
   
   <body class="my-body">
     <div class="centered-VTT">
@@ -124,8 +128,7 @@
       <div class="title-divider">
         <img src="/images/TitleLine.png" alt="Line">
       </div>
-      <div class="sub-title">
-        <h1><em>Seven Against Thebes</em></h1>
+      <div class="sub-title" id="player">
       </div>
       <slot></slot>
 
@@ -136,7 +139,7 @@
         }}>ABILITIES</div>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="grid-heading" id="equipment" on:click={() => {
-          getStarterPackage();
+          // getStarterPackage(); No longer required.
         }}>
           EQUIPMENT
         </div>
@@ -161,20 +164,20 @@
           <div class="sub-grid-item">DEX</div>
           <div class="sub-grid-item" id="dex"></div>
         </div>
-        <div class="grid-item" id="equipmentSlot-3">14</div>
-        <div class="grid-item" id="equipmentSlot-4">15</div>
-        <div class="grid-item" id="equipmentSlot-5">16</div>
+        <div class="grid-item" id="equipmentSlot-3"></div>
+        <div class="grid-item" id="equipmentSlot-4"></div>
+        <div class="grid-item" id="equipmentSlot-5"></div>
         <div class="grid-item" id="arcanaSlot-1"></div>
         <div class="grid-item"></div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">WIL</div>
           <div class="sub-grid-item" id="wil"></div>
         </div>
-        <div class="grid-item" id="equipmentSlot-6">20</div>
-        <div class="grid-item" id="equipmentSlot-7">21</div>
-        <div class="grid-item" id="equipmentSlot-8">22</div>
+        <div class="grid-item" id="equipmentSlot-6"></div>
+        <div class="grid-item" id="equipmentSlot-7"></div>
+        <div class="grid-item" id="equipmentSlot-8"></div>
         <div class="grid-item" id="arcanaSlot-2"></div>
-        <div class="grid-item"></div>
+        <div class="grid-heading">COMPANION</div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">HP</div>
           <div class="sub-grid-item" id="hp"></div>
@@ -183,7 +186,7 @@
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item" id="arcanaSlot-3"></div>
-        <div class="grid-item"></div>
+        <div class="grid-item" id="accompliceSlot"></div>
         <div class="grid-item" id="special-info"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
