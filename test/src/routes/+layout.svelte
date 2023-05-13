@@ -1,7 +1,7 @@
 <script>
     import '../app.css';
     import { writable } from 'svelte/store';
-    import { equipmentStore, getStarterPackage, myplayer, makeplayer } from './stores';
+    import { equipmentStore, myplayer, makeplayer } from './stores';
 </script>
 
 <style>

@@ -1,7 +1,7 @@
 <script>
 	import { intros } from "svelte/internal";
   import { onMount } from 'svelte';
-  import { equipmentStore, getStarterPackage, starterPackage, myplayer, makeplayer} from './stores';
+  import { equipmentStore, myplayer, makeplayer} from './stores';
 
   let hp = 0;
   let inventory = []
@@ -11,7 +11,6 @@
   }
 
   onMount(() => {
-    starterPackage();
     makeplayer(myplayer);
   });
 
