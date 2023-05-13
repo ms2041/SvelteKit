@@ -1,100 +1,102 @@
+// This file contains game data such as Starter Packages, lists of arcanum and other data.
+
 export const starterPackages = [
   // 1 HP
   [
     {
       equipment: ['Sword (d6)', 'Pistol (d6)', 'Modern Armour'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby unearthly beings',
     },
     {
       equipment: ['Sword (d6)', 'Pistol (d6)', 'Modern Armour'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby unearthly beings',
     },
     {
       equipment: ['Sword (d6)', 'Pistol (d6)', 'Modern Armour'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby unearthly beings',
     },
     {
       equipment: ['Sword (d6)', 'Pistol (d6)', 'Modern Armour'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby unearthly beings',
     },
     {
       equipment: ['Sword (d6)', 'Pistol (d6)', 'Modern Armour'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby unearthly beings',
     },
     {
       equipment: ['Sword (d6)', 'Pistol (d6)', 'Modern Armour'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby unearthly beings',
     },
     {
       equipment: ['Sword (d6)', 'Pistol (d6)', 'Modern Armour'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby unearthly beings',
     },
     {
       equipment: ['Rifle (d8 B)', 'Bayonet (d6)'],
       arcanum: true,
-      accomplice: 'Lighter Boy',
+      companion: 'Lighter Boy',
       specialInformation: '',
     },
     {
       equipment: ['Rifle (d8 B)', 'Modern Armour'],
       arcanum: true,
-      accomplice: 'Hound',
+      companion: 'Hound',
       specialInformation: '',
     },
     {
       equipment: ['Club (d6)', 'Throwing Knives'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Pistol (d6)', 'Ether', 'Poison'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Cane (d6)', 'Acid', 'Spyglass'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Brace of Pistols (d8 B)', 'Canary', 'Ether'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Musket (d8 B)', 'Pocket-watch', 'Bomb'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Halberd (d8 B)', 'Fake Pistol', 'Artificial Lung'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Garotte (d6)', 'Musket (d8 B)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Mute',
     },
   ],
@@ -103,97 +105,97 @@ export const starterPackages = [
     {
       equipment: ['Musket (d8 B)', 'Sword (d6)', 'Flashbang'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby Arcana'
     },
     {
       equipment: ['Musket (d8 B)', 'Sword (d6)', 'Flashbang'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby Arcana'
     },
     {
       equipment: ['Musket (d8 B)', 'Sword (d6)', 'Flashbang'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby Arcana'
     },
     {
       equipment: ['Musket (d8 B)', 'Sword (d6)', 'Flashbang'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby Arcana'
     },
     {
       equipment: ['Musket (d8 B)', 'Sword (d6)', 'Flashbang'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby Arcana'
     },
     {
       equipment: ['Musket (d8 B)', 'Sword (d6)', 'Flashbang'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby Arcana'
     },
     {
       equipment: ['Musket (d8 B)', 'Sword (d6)', 'Flashbang'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Sense nearby Arcana'
     },
     {
       equipment: ['Musket (d8 B)', 'Hatchet (d6)'],
       arcanum: true,
-      accomplice: 'Hawk',
+      companion: 'Hawk',
       specialInformation: ''
     },
     {
       equipment: ['Hatchet (d6)', 'Pistol (d6)', 'Bolt- Cutters'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Musket (d8 B)'],
       arcanum: true,
-      accomplice: 'Mule',
+      companion: 'Mule',
       specialInformation: ''
     },
     {
       equipment: ['Sword (d6)', 'Pistol (d6)', 'Crude Armour'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Pistol (d6)', 'Bell', 'Steel Wire', 'Smoke-bomb'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Longaxe (d8 B)', 'Ferret', 'Fire Oil'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Staff (d6 B)', 'Tongs', 'Glue'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Pistol (d6)', 'Net', 'Trumpet'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Prosthetic Leg'
     },
     {
       equipment: ['Pistol (d6)', 'Grease', 'Hacksaw'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'One Arm'
     }
   ],
@@ -202,97 +204,97 @@ export const starterPackages = [
     {
       equipment: ['Musket (d8 B)', 'Club (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Immunity to extreme heat and cold',
     },
     {
       equipment: ['Musket (d8 B)', 'Club (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Immunity to extreme heat and cold',
     },
     {
       equipment: ['Musket (d8 B)', 'Club (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Immunity to extreme heat and cold',
     },
     {
       equipment: ['Musket (d8 B)', 'Club (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Immunity to extreme heat and cold',
     },
     {
       equipment: ['Musket (d8 B)', 'Club (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Immunity to extreme heat and cold',
     },
     {
       equipment: ['Musket (d8 B)', 'Club (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Immunity to extreme heat and cold',
     },
     {
       equipment: ['Musket (d8 B)', 'Club (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Immunity to extreme heat and cold',
     },
     {
       equipment: ['Musket (d8 B)', 'Protective Gloves'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Musket (d8 B)', 'Mallet', 'Marbles', 'Fancy Hat'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Pick-Axe (d6)', 'Manacles'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Pistol (d6)', 'Smoke-bomb', 'Shovel'],
       arcanum: false,
-      accomplice: 'Mutt',
+      companion: 'Mutt',
       specialInformation: '',
     },
     {
       equipment: ['Longaxe (d8 B)', 'Throwing Axes', 'Fire Oil'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Club (d6)', 'Ether', 'Crowbar', 'Flute'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Hatchet (d6)', 'Net', 'Fire Oil'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Burnt Face',
     },
     {
       equipment: ['Club (d6)', 'Paint', 'Crowbar'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Loud Lungs',
     },
     {
       equipment: ['Pistol (d6)', 'Cigars', 'Poison'],
       arcanum: false,
-      accomplice: 'Fugitive',
+      companion: 'Fugitive',
       specialInformation: '',
     },
   ],
@@ -301,97 +303,97 @@ export const starterPackages = [
     {
       equipment: ['Pistol (d6)', 'Knife (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Telepathy if target fails WIL Save',
     },
     {
       equipment: ['Pistol (d6)', 'Knife (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Telepathy if target fails WIL Save',
     },
     {
       equipment: ['Pistol (d6)', 'Knife (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Telepathy if target fails WIL Save',
     },
     {
       equipment: ['Pistol (d6)', 'Knife (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Telepathy if target fails WIL Save',
     },
     {
       equipment: ['Pistol (d6)', 'Knife (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Telepathy if target fails WIL Save',
     },
     {
       equipment: ['Pistol (d6)', 'Knife (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Telepathy if target fails WIL Save',
     },
     {
       equipment: ['Pistol (d6)', 'Knife (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Telepathy if target fails WIL Save',
     },
     {
       equipment: ['Claymore (d8 B)', 'Pistol (d6)', '2 Acid Flasks'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Musket (d8 B)', 'Bayonet (d6)'],
       arcanum: false,
-      accomplice: 'Mutt with telepathic link',
+      companion: 'Mutt with telepathic link',
       specialInformation: '',
     },
     {
       equipment: ['Pistol (d6)', 'Rocket'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Toxin-Immune',
     },
     {
       equipment: ['Musket (d8 B)', 'Portable Ram', 'Game Set'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Pistol (d6)', 'Saw', 'Animal Trap', 'Spyglass'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Bow (d6 B)', 'Knife (d6)', 'Rocket', 'Fire Oil'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: '',
     },
     {
       equipment: ['Pistol (d6)', 'Whip (d6)', 'Cigars'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Lost Eye',
     },
     {
       equipment: ['Musket (d8 B)', 'Accordion.'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'No Nose/Scent',
     },
     {
       equipment: ['Sword (d6)', 'Shield'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Illiterate',
     },
   ],
@@ -400,97 +402,97 @@ export const starterPackages = [
     {
       equipment: ['Blunderbuss (d8 B)', 'Hatchet (d6)'],
       arcanum: false,
-      accomplice: 'Mutt',
+      companion: 'Mutt',
       specialInformation: 'Dreams show your undiscovered surroundings'
     },
     {
       equipment: ['Blunderbuss (d8 B)', 'Hatchet (d6)'],
       arcanum: false,
-      accomplice: 'Mutt',
+      companion: 'Mutt',
       specialInformation: 'Dreams show your undiscovered surroundings'
     },
     {
       equipment: ['Blunderbuss (d8 B)', 'Hatchet (d6)'],
       arcanum: false,
-      accomplice: 'Mutt',
+      companion: 'Mutt',
       specialInformation: 'Dreams show your undiscovered surroundings'
     },
     {
       equipment: ['Blunderbuss (d8 B)', 'Hatchet (d6)'],
       arcanum: false,
-      accomplice: 'Mutt',
+      companion: 'Mutt',
       specialInformation: 'Dreams show your undiscovered surroundings'
     },
     {
       equipment: ['Blunderbuss (d8 B)', 'Hatchet (d6)'],
       arcanum: false,
-      accomplice: 'Mutt',
+      companion: 'Mutt',
       specialInformation: 'Dreams show your undiscovered surroundings'
     },
     {
       equipment: ['Blunderbuss (d8 B)', 'Hatchet (d6)'],
       arcanum: false,
-      accomplice: 'Mutt',
+      companion: 'Mutt',
       specialInformation: 'Dreams show your undiscovered surroundings'
     },
     {
       equipment: ['Blunderbuss (d8 B)', 'Hatchet (d6)'],
       arcanum: false,
-      accomplice: 'Mutt',
+      companion: 'Mutt',
       specialInformation: 'Dreams show your undiscovered surroundings'
     },
     {
       equipment: ['Brace of Pistols (d8 B)', 'Steel Wire', 'Grappling Hook'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Machete (d6)', 'Brace of Pistols (d8 B)'],
       arcanum: false,
-      accomplice: 'Talking Parrot',
+      companion: 'Talking Parrot',
       specialInformation: 'Never Sleep'
     },
     {
       equipment: ['Harpoon Gun (d8 B)', 'Baton (d6)', 'Acid'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Slightly Magnetic'
     },
     {
       equipment: ['Bolt-Cutters', 'Blunderbuss (d8 B)', 'Fiddle'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Pistol (d6)', 'Grease', 'Hand Drill', 'Drum'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Sword & Dagger (d8 B)', 'Magnifying Glass'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Lost Eye'
     },
     {
       equipment: ['Pistol (d6)', 'Acid', 'Animal Repellent'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Prosthetic Hand'
     },
     {
       equipment: ['Sword (d6)', 'Steel Wire'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Ugly Mutation'
     },
     {
       equipment: ['Sword (d6)', 'Tattered Clothes'],
       arcanum: false,
-      accomplice: 'Ferret',
+      companion: 'Ferret',
       specialInformation: 'Debt (3G)'
     }
   ],
@@ -499,97 +501,97 @@ export const starterPackages = [
     {
       equipment: ['Musket (d8 B)', 'Hatchet (d6)', 'Flashbang'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Iron Limb'
     },
     {
       equipment: ['Musket (d8 B)', 'Hatchet (d6)', 'Flashbang'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Iron Limb'
     },
     {
       equipment: ['Musket (d8 B)', 'Hatchet (d6)', 'Flashbang'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Iron Limb'
     },
     {
       equipment: ['Musket (d8 B)', 'Hatchet (d6)', 'Flashbang'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Iron Limb'
     },
     {
       equipment: ['Musket (d8 B)', 'Hatchet (d6)', 'Flashbang'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Iron Limb'
     },
     {
       equipment: ['Musket (d8 B)', 'Hatchet (d6)', 'Flashbang'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Iron Limb'
     },
     {
       equipment: ['Musket (d8 B)', 'Hatchet (d6)', 'Flashbang'],
       arcanum: true,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Iron Limb'
     },
     {
       equipment: ['Rifle (d8 B)', 'Mace (d6)', 'Eagle'],
       arcanum: false,
-      accomplice: 'Poison',
+      companion: 'Poison',
       specialInformation: ''
     },
     {
       equipment: ['Club (d6)', '3 Bombs', 'Rocket'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Darkvision'
     },
     {
       equipment: ['Maul (d8 B)', 'Dagger (d6)', 'Chain'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Longaxe (d8 B)', 'Rum', 'Bomb'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Dagger (d6)', 'Fire Oil', 'Mirror'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Pistol (d6)', 'Knife (d6)', 'Bomb', 'Saw'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: 'Glowing Eyes'
     },
     {
       equipment: ['Pistol (d6)', 'Bomb', 'Shovel'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Staff (d6 B)', 'Throwing Knives (d6)'],
       arcanum: false,
-      accomplice: '',
+      companion: '',
       specialInformation: ''
     },
     {
       equipment: ['Mace (d6)'],
       arcanum: false,
-      accomplice: 'Pigeon',
+      companion: 'Pigeon',
       specialInformation: 'Disfigured'
     }
   ]

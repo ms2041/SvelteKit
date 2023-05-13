@@ -1,7 +1,7 @@
 <script>
     import '../app.css';
     import { writable } from 'svelte/store';
-    import { equipmentStore, getStarterPackage, myCharacter, makeCharacter } from './stores';
+    import { equipmentStore, getStarterPackage, myplayer, makeplayer } from './stores';
 </script>
 
 <style>
@@ -24,56 +24,6 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: auto;
-  }
-
-  .grid-container {
-    position: absolute;
-    bottom: 16px;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    width: 972px;
-    height: 172px;    
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-  .grid-item {
-    /*background-color: #141414;*/
-    /*border: 1px solid #282828;*/
-    font-family: 'hultog.italic';
-    display: flex;
-    align-items: center;
-    text-align: left;
-  }
-
-.grid-heading {
-  /*background-color: #141414;*/
-  /*border: 1px solid #282828;*/
-  font-family: 'hultog.italic';
-  font-size: 20px;
-}
-
-  .grid-item-ability {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-  }
-
-  .sub-grid-item {
-    /*background-color: #141414;*/
-    /*border: 1px solid #282828;*/
-    font-family: 'hultog.italic';
-    display: flex;
-    align-items: center;
-    text-align: left;
-    font-size: 16px;
-  }
-
-  .grid-item-money {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
   }
 
   .title {
@@ -102,7 +52,6 @@
     color: white;
     font-family: 'hultog.regular';
     letter-spacing: 2px;
-
   }
 
   :global(html) {
@@ -118,6 +67,52 @@
     cursor: pointer;
   }
 
+  .grid-container {
+    position: absolute;
+    bottom: 16px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 972px;
+    height: 172px;    
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+  .grid-item {
+    /*border: 1px solid #282828;*/
+    font-family: 'hultog.italic';
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  .grid-heading {
+    /*border: 1px solid #282828;*/
+    font-family: 'hultog.italic';
+    font-size: 20px;
+  }
+
+  .grid-item-ability {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+
+  .sub-grid-item {
+    /*border: 1px solid #282828;*/
+    font-family: 'hultog.italic';
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-size: 16px;
+  }
+
+  .grid-item-money {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
 </style>
   
   <body class="my-body">
@@ -135,7 +130,7 @@
       <div class="grid-container">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="grid-heading" id="abilities" on:click={() => {
-          makeCharacter(myCharacter);
+          makeplayer(myplayer);
         }}>ABILITIES</div>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="grid-heading" id="equipment" on:click={() => {
@@ -186,7 +181,7 @@
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item" id="arcanaSlot-3"></div>
-        <div class="grid-item" id="accompliceSlot"></div>
+        <div class="grid-item" id="companionSlot"></div>
         <div class="grid-item" id="special-info"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
@@ -194,6 +189,5 @@
         <div class="grid-item"></div>
         <div class="grid-item"></div>
       </div>
-      
     </div>
   </body>
