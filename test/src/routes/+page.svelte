@@ -14,6 +14,4 @@
     makeplayer(myplayer);
   });
 
-  
-
 </script>
