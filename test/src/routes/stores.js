@@ -12,6 +12,19 @@ export const equipmentStore = writable(['', '', '', '', '', '', '', '', '']);
 // Define equipment slots which are mapped to a div element in +layout.svelte.
 const equipmentSlot = ['', '', '', '', '', '', '', '', ''];
 
+// gridItems are stat stores that are mapped to divs in +layout.svelte.
+export const title = writable('INTO THE ODD');
+export const playerName = writable('');
+export const gridItemStr = writable(0);
+export const gridItemDex = writable(0);
+export const gridItemWil = writable(0);
+export const gridItemHp = writable(0);
+export const gridItemEquipment = writable(['', '', '', '', '', '', '', '', '', '', '', '']);
+export const gridItemCompanion = writable('');
+export const gridItemShillings = writable(0);
+export const gridItemPennies = writable(0);
+export const gridItemGuilders = writable(0);
+
 // Define player.
 let player = {
   name: '',
@@ -54,44 +67,22 @@ export const myplayer = writable(player);
 
 export function updateGridItems() {
   for (let i = 0; i < equipmentSlot.length; i++) {
-    const gridItem = document.getElementById(`equipmentSlot-${i}`);
-    gridItem.textContent = equipmentSlot[i];
+    gridItemEquipment.set(equipmentSlot[i]);
   }
 }
 
-// Define 4 arcanum slots in UI.
-export const arcanaStore = writable(['', '', '', '']);
-
-export function updateArcana() {
-  const doubleSlot = document.querySelector('arcanaContainer-0');
-  for (let i = 0; i < arcanaSlot.length; i++) {
-    const gridItem = document.getElementById(`arcanaSlot-${i}`);
-    gridItem.textContent = arcanaSlot[i].name;
-  }
-}
-
-export function updatecompanion() {
-  const gridItem = document.getElementById(`companionSlot`);
-    gridItem.textContent = companionSlot;
-}
 export function getPlayerName() {
   return(names[getRandomInt(names.length)]);
 }
-export function updatePlayer(player) {
-  const playerInfo = document.getElementById(`player`);
-  console.log('updatePlayer: ', player.name);
-  playerInfo.textContent = player.name;
+export function updatePlayerName(player) {
+  playerName.set(player.name);
 }
 
 export function updateAbilities(player) {
-  const gridItemStr = document.getElementById(`str`);
-  gridItemStr.textContent = player.str;
-  const gridItemDex = document.getElementById(`dex`);
-  gridItemDex.textContent = player.dex;
-  const gridItemWil = document.getElementById(`wil`);
-  gridItemWil.textContent = player.wil;
-  const gridItemHp = document.getElementById(`hp`);
-  gridItemHp.textContent = player.hp;
+  gridItemStr.set(player.str);
+  gridItemDex.set(player.dex);
+  gridItemWil.set(player.wil);
+  gridItemHp.set(player.hp);
   console.log('Update abilities:', player);
 }
 
@@ -101,38 +92,35 @@ export function getHighestAbility(player) {
 }
 
 export function getStarterPackage(player) {
-  let i = getRandomInt(6);
-  let j = getRandomInt(16);
-  i = player.hp - 1;
-  j = getHighestAbility(player) - 3; // The range of the array is from 3 - 18.
+  let i = player.hp - 1;
+  let j = getHighestAbility(player) - 3; // The range of the array is from 3 - 18.
   console.log('Column, Row: ', starterPackages.length, starterPackages[0].length, i, j);
   let inventory = starterPackages[i][j];
 
-  // Empty aracanumSlot
-  for (i=0; i<arcanaSlot.length; i++) {
-    arcanaSlot[i] = emptyArcanaSlot;
-  }
-
-  for (let k=0; k<equipmentSlot.length; k++) {
+  for (let k=0; k<gridItemEquipment.length - 1; k++) {
     // Copy equipment to equipmentSlot.
-    equipmentSlot[k] = inventory.equipment[k];
+    if (inventory.equipment[k]) {
+      gridItemEquipment[k].set(inventory.equipment[k]);
+    } else {
+      gridItemEquipment[k].set('');
+    }
   }
 
   if (inventory.arcanum) {
-      arcanaSlot[0] = getArcana();
-      console.log('Arcana slot: ', arcanaSlot);
-    }
+    let i = inventory.equipment.length
+    gridItemEquipment[i].set(getArcana());
+    console.log('Arcana slot: ', arcanaSlot);
+  }
 
-  companionSlot = inventory.companion;
+  gridItemCompanion.set(inventory.companion);
 
   player.specialInformation = inventory.specialInformation;
 
-  console.log('get Starter package called ', inventory, equipmentSlot);
+  console.log('get Starter package called ', inventory);
 
-  updatePlayer(player);
+  updatePlayerName(player);
   updateGridItems();
   updateArcana();
-  updatecompanion();
 
   equipmentStore.subscribe(value => {
     console.log('equipmentStore: ',value);
@@ -151,7 +139,6 @@ export function makeplayer(player) {
 
   console.log('Make player called', player.name, player);
   updateAbilities(player);
-  updatePlayer(player)
   getStarterPackage(player)
 }
 

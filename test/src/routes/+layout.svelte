@@ -1,7 +1,19 @@
 <script>
     import '../app.css';
     import { writable } from 'svelte/store';
-    import { equipmentStore, myplayer, makeplayer } from './stores';
+    import { 
+      equipmentStore,
+      title,
+      playerName,
+      gridItemStr,
+      gridItemDex,
+      gridItemWil,
+      gridItemHp,
+      gridItemEquipment,
+      gridItemCompanion,
+      myplayer,
+      makeplayer
+      } from './stores';
 </script>
 
 <style>
@@ -117,14 +129,9 @@
   
   <body class="my-body">
     <div class="centered-VTT">
-      <div class="title">
-        <h1>INTO THE ODD</h1>
-      </div>
-      <div class="title-divider">
-        <img src="/images/TitleLine.png" alt="Line">
-      </div>
-      <div class="sub-title" id="player">
-      </div>
+      <div class="title"><h1>{$title}</h1></div>
+      <div class="title-divider"><img src="/images/TitleLine.png" alt="Line"></div>
+      <div class="sub-title" id="player">{$playerName}</div>
       <slot></slot>
 
       <div class="grid-container">
@@ -144,12 +151,12 @@
         <div class="grid-heading" id="money">MONEY</div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">STR</div>
-          <div class="sub-grid-item" id="str"></div>
+          <div class="sub-grid-item" id="str">{$gridItemStr}</div>
         </div>
-        <div class="grid-item" id="equipmentSlot-0"></div>
-        <div class="grid-item" id="equipmentSlot-1"></div>
-        <div class="grid-item" id="equipmentSlot-2"></div>
-        <div class="grid-item" id="arcanaSlot-0"></div>
+        <div class="grid-item" id="equipmentSlot-0">{$gridItemEquipment[0]}</div>
+        <div class="grid-item" id="equipmentSlot-1">{$gridItemEquipment[1]}</div>
+        <div class="grid-item" id="equipmentSlot-2">{$gridItemEquipment[2]}</div>
+        <div class="grid-item" id="equipmentSlot-3">{$gridItemEquipment[3]}</div>
         <div class="grid-item-money">
           <div class="sub-grid-item">0S</div>
           <div class="sub-grid-item">0C</div>
@@ -157,31 +164,31 @@
         </div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">DEX</div>
-          <div class="sub-grid-item" id="dex"></div>
+          <div class="sub-grid-item" id="dex">{$gridItemDex}</div>
         </div>
-        <div class="grid-item" id="equipmentSlot-3"></div>
-        <div class="grid-item" id="equipmentSlot-4"></div>
-        <div class="grid-item" id="equipmentSlot-5"></div>
-        <div class="grid-item" id="arcanaSlot-1"></div>
+        <div class="grid-item" id="equipmentSlot-4">{$gridItemEquipment[3]}</div>
+        <div class="grid-item" id="equipmentSlot-5">{$gridItemEquipment[4]}</div>
+        <div class="grid-item" id="equipmentSlot-6">{$gridItemEquipment[5]}</div>
+        <div class="grid-item" id="equipmentSlot-7">{$gridItemEquipment[6]}</div>
         <div class="grid-item"></div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">WIL</div>
-          <div class="sub-grid-item" id="wil"></div>
+          <div class="sub-grid-item" id="wil">{$gridItemWil}</div>
         </div>
-        <div class="grid-item" id="equipmentSlot-6"></div>
-        <div class="grid-item" id="equipmentSlot-7"></div>
-        <div class="grid-item" id="equipmentSlot-8"></div>
-        <div class="grid-item" id="arcanaSlot-2"></div>
+        <div class="grid-item" id="equipmentSlot-8">{$gridItemEquipment[7]}</div>
+        <div class="grid-item" id="equipmentSlot-9">{$gridItemEquipment[8]}</div>
+        <div class="grid-item" id="equipmentSlot-10">{$gridItemEquipment[9]}</div>
+        <div class="grid-item" id="equipmentSlot-11">{$gridItemEquipment[10]}</div>
         <div class="grid-heading">COMPANION</div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">HP</div>
-          <div class="sub-grid-item" id="hp"></div>
+          <div class="sub-grid-item" id="hp">{$gridItemHp}</div>
         </div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item" id="arcanaSlot-3"></div>
-        <div class="grid-item" id="companionSlot"></div>
+        <div class="grid-item">{$gridItemCompanion}</div>
         <div class="grid-item" id="special-info"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
