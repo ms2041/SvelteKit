@@ -4,13 +4,7 @@ import { writable } from 'svelte/store';
 import { starterPackages, arcanum, names, companionNames } from './oddpendium.js';
 
 
-const maxEquipmentSlots = 9;
-
-// Define equipment store.
-export const equipmentStore = writable(['', '', '', '', '', '', '', '', '']);
-
-// Define equipment slots which are mapped to a div element in +layout.svelte.
-const equipmentSlot = ['', '', '', '', '', '', '', '', ''];
+const maxEquipmentSlots = 12;
 
 // gridItems are stat stores that are mapped to divs in +layout.svelte.
 export const title = writable('INTO THE ODD');
@@ -25,7 +19,7 @@ export const gridItemShillings = writable(0);
 export const gridItemPennies = writable(0);
 export const gridItemGuilders = writable(0);
 
-// Define player.
+// Define player record.
 let player = {
   name: '',
   str: 0,
@@ -33,10 +27,11 @@ let player = {
   wil: 0,
   hp: 0,
   equipment: [],
-  arcanum:[],
   companion: '',
   specialInformation: '',
-  money: 0
+  moneyShillings: 9,
+  moneyPennies: 0,
+  moneyGuilders:0
 };
 
 /* An item which can be any object that can be picked up.
@@ -51,29 +46,21 @@ let item = {
   cost: 0
 }
 
-let emptyEquipmentSlot = {
-  equipment: [],
-  arcanum: false,
-  companion: '',
-  specialInformation: ''
-};
-
 let emptyArcanaSlot = {
   name: '',
   description: ''
 }
 
-export const myplayer = writable(player);
+export const myplayer = writable(player); // Is this necessary?
 
-export function updateGridItems() {
-  for (let i = 0; i < equipmentSlot.length; i++) {
-    gridItemEquipment.set(equipmentSlot[i]);
-  }
+export function updateGridItems(equipmentArray) {
+    gridItemEquipment.set(equipmentArray);
 }
 
 export function getPlayerName() {
   return(names[getRandomInt(names.length)]);
 }
+
 export function updatePlayerName(player) {
   playerName.set(player.name);
 }
@@ -91,63 +78,67 @@ export function getHighestAbility(player) {
   return Math.max(str, dex, wil);
 }
 
+export function updateMoney(player) {
+  gridItemShillings.set(player.moneyShillings);
+  gridItemPennies.set(player.moneyPennies);
+  gridItemGuilders.set(player.moneyGuilders);
+  console.log('Update money: ', player.moneyShillings, player.moneyPennies, player.moneyGuilders)
+}
+
 export function getStarterPackage(player) {
+  // Choose a starter package and initialise player with equipment.
   let i = player.hp - 1;
   let j = getHighestAbility(player) - 3; // The range of the array is from 3 - 18.
   console.log('Column, Row: ', starterPackages.length, starterPackages[0].length, i, j);
   let inventory = starterPackages[i][j];
 
-  for (let k=0; k<gridItemEquipment.length - 1; k++) {
-    // Copy equipment to equipmentSlot.
+  // equipmentArray is a temporary variable to hold gridItemEquipment data.
+  let equipmentArray = ['','','','','','','','','','','',''];
+  for (let k=0; k<equipmentArray.length - 1; k++) {
+    // Copy equipment to populate equipmentArray.
     if (inventory.equipment[k]) {
-      gridItemEquipment[k].set(inventory.equipment[k]);
-    } else {
-      gridItemEquipment[k].set('');
+        equipmentArray[k] = inventory.equipment[k];
     }
   }
 
   if (inventory.arcanum) {
-    let i = inventory.equipment.length
-    gridItemEquipment[i].set(getArcana());
-    console.log('Arcana slot: ', arcanaSlot);
+    equipmentArray[inventory.equipment.length] = getArcana().name;
   }
 
   gridItemCompanion.set(inventory.companion);
 
+  player.equipment = inventory.equipment;
   player.specialInformation = inventory.specialInformation;
+  player.equipment = inventory.equipment;
 
-  console.log('get Starter package called ', inventory);
+  console.log('get Starter package called ', player);
 
   updatePlayerName(player);
-  updateGridItems();
-  updateArcana();
-
-  equipmentStore.subscribe(value => {
-    console.log('equipmentStore: ',value);
-  });
+  updateGridItems(equipmentArray);
+  updateMoney(player);
 
   return starterPackages[i][j];
 }
 
-export function makeplayer(player) {
+export function createPlayer() {
   player.name = getPlayerName(player);
   player.str = getRandom3d6();
   player.dex = getRandom3d6();
   player.wil = getRandom3d6();
   player.hp = getRandomInt(6) + 1;
-  player.money = 0;
+  player.moneyShillings = 0;
+  player.moneyPennies = 0;
+  player.moneyGuilders = 0;
 
-  console.log('Make player called', player.name, player);
+  console.log('createPlayer called', player.name, player);
   updateAbilities(player);
-  getStarterPackage(player)
+  getStarterPackage(player);
 }
 
 export function getArcana() {
   console.log ('getArcana called');
   return (arcanum[getRandomInt(arcanum.length)]);
 }
-
-const arcanaSlot = ['', '', '', '']
 
 function getRandomInt(max) {  
   return Math.floor(Math.random() * max);

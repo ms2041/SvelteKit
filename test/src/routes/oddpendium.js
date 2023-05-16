@@ -602,7 +602,7 @@ export const arcanum = [
   {name: 'Pierced Heart', description: 'State an object you desire. The heart indicates its direction and vague distance.'},
   {name: 'Pale Flame', description: 'An object you touch glows with white light. Contact with the glowing object causes a chilling pain. The effect wears off when the Arcanum is used again.'},
   {name: 'Soul Chain', description: 'Target must pass a deX Save to avoid your touch, or they lose d6 WIL and you get a glimpse of their current desire.'},
-  {name: 'Gavel of the Unbreakable Seal', description: 'One door, window, etc. is sealed until you open it.'},
+  {name: 'The Unbreakable Seal', description: 'One door, window, etc. is sealed until you open it.'},
   {name: 'Foul Censer', description: 'Green smoke surrounds you and everyone within 20ft. Missiles cannot pass through the smoke.'},
   {name: 'Bleeding Stave', description: 'Spews blood-like oil onto a 10ft area. Anyone moving or standing on the oil must make a deX Save to avoid falling and being unable to move on their turn. Disappears in a harmless flash if ignited.'},
   {name: 'Pain Idol', description: 'Roll a die of your choice. If the result is odd, you lose that much stR, if it\’s even your target loses that much stR.'},

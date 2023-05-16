@@ -2,7 +2,6 @@
     import '../app.css';
     import { writable } from 'svelte/store';
     import { 
-      equipmentStore,
       title,
       playerName,
       gridItemStr,
@@ -11,8 +10,11 @@
       gridItemHp,
       gridItemEquipment,
       gridItemCompanion,
+      gridItemShillings,
+      gridItemPennies,
+      gridItemGuilders,
       myplayer,
-      makeplayer
+      createPlayer
       } from './stores';
 </script>
 
@@ -137,7 +139,7 @@
       <div class="grid-container">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="grid-heading" id="abilities" on:click={() => {
-          makeplayer(myplayer);
+          createPlayer(myplayer);
         }}>ABILITIES</div>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="grid-heading" id="equipment" on:click={() => {
@@ -147,7 +149,7 @@
         </div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
-        <div class="grid-heading" id="arcana">ARCANA</div>
+        <div class="grid-item"></div>
         <div class="grid-heading" id="money">MONEY</div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">STR</div>
@@ -158,27 +160,27 @@
         <div class="grid-item" id="equipmentSlot-2">{$gridItemEquipment[2]}</div>
         <div class="grid-item" id="equipmentSlot-3">{$gridItemEquipment[3]}</div>
         <div class="grid-item-money">
-          <div class="sub-grid-item">0S</div>
-          <div class="sub-grid-item">0C</div>
-          <div class="sub-grid-item">0G</div>
+          <div class="sub-grid-item">{$gridItemShillings}S</div>
+          <div class="sub-grid-item">{$gridItemPennies}P</div>
+          <div class="sub-grid-item">{$gridItemGuilders}G</div>
         </div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">DEX</div>
           <div class="sub-grid-item" id="dex">{$gridItemDex}</div>
         </div>
-        <div class="grid-item" id="equipmentSlot-4">{$gridItemEquipment[3]}</div>
-        <div class="grid-item" id="equipmentSlot-5">{$gridItemEquipment[4]}</div>
-        <div class="grid-item" id="equipmentSlot-6">{$gridItemEquipment[5]}</div>
-        <div class="grid-item" id="equipmentSlot-7">{$gridItemEquipment[6]}</div>
+        <div class="grid-item" id="equipmentSlot-4">{$gridItemEquipment[4]}</div>
+        <div class="grid-item" id="equipmentSlot-5">{$gridItemEquipment[5]}</div>
+        <div class="grid-item" id="equipmentSlot-6">{$gridItemEquipment[6]}</div>
+        <div class="grid-item" id="equipmentSlot-7">{$gridItemEquipment[7]}</div>
         <div class="grid-item"></div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">WIL</div>
           <div class="sub-grid-item" id="wil">{$gridItemWil}</div>
         </div>
-        <div class="grid-item" id="equipmentSlot-8">{$gridItemEquipment[7]}</div>
-        <div class="grid-item" id="equipmentSlot-9">{$gridItemEquipment[8]}</div>
-        <div class="grid-item" id="equipmentSlot-10">{$gridItemEquipment[9]}</div>
-        <div class="grid-item" id="equipmentSlot-11">{$gridItemEquipment[10]}</div>
+        <div class="grid-item" id="equipmentSlot-8">{$gridItemEquipment[8]}</div>
+        <div class="grid-item" id="equipmentSlot-9">{$gridItemEquipment[9]}</div>
+        <div class="grid-item" id="equipmentSlot-10">{$gridItemEquipment[10]}</div>
+        <div class="grid-item" id="equipmentSlot-11">{$gridItemEquipment[11]}</div>
         <div class="grid-heading">COMPANION</div>
         <div class="grid-item-ability">
           <div class="sub-grid-item">HP</div>
@@ -187,7 +189,7 @@
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
-        <div class="grid-item" id="arcanaSlot-3"></div>
+        <div class="grid-item"></div>
         <div class="grid-item">{$gridItemCompanion}</div>
         <div class="grid-item" id="special-info"></div>
         <div class="grid-item"></div>
