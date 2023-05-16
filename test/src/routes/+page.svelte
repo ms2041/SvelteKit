@@ -1,7 +1,7 @@
 <script>
 	import { intros } from "svelte/internal";
   import { onMount } from 'svelte';
-  import { myplayer, createPlayer} from './stores';
+  import { createPlayer} from './stores';
 
   let hp = 0;
   let inventory = []
@@ -11,7 +11,7 @@
   }
 
   onMount(() => {
-    createPlayer();
+    createPlayer(); // Generate a random player on start up.
   });
 
 </script>

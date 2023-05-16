@@ -46,15 +46,24 @@ let item = {
   cost: 0
 }
 
-let emptyArcanaSlot = {
-  name: '',
-  description: ''
+function getRandomInt(max) {  
+  return Math.floor(Math.random() * max);
 }
 
-export const myplayer = writable(player); // Is this necessary?
+function getRandom3d6() {
+  return (getRandomInt(6) + 1 + getRandomInt(6) + 1 + getRandomInt(6) + 1);
+}
 
-export function updateGridItems(equipmentArray) {
-    gridItemEquipment.set(equipmentArray);
+export function updateEquipment(player) {
+  // equipmentArray is a temporary variable to hold gridItemEquipment data.
+  let equipmentArray = ['','','','','','','','','','','',''];
+  for (let i=0; i<equipmentArray.length - 1; i++) {
+    // Copy equipment to populate equipmentArray.
+    if (player.equipment[i]) {
+        equipmentArray[i] = player.equipment[i];
+    }
+  }
+  gridItemEquipment.set(equipmentArray);
 }
 
 export function getPlayerName() {
@@ -63,6 +72,10 @@ export function getPlayerName() {
 
 export function updatePlayerName(player) {
   playerName.set(player.name);
+}
+
+export function updateCompanion(player) {
+  gridItemCompanion.set(player.companion);
 }
 
 export function updateAbilities(player) {
@@ -76,6 +89,11 @@ export function updateAbilities(player) {
 export function getHighestAbility(player) {
   const { str, dex, wil } = player;
   return Math.max(str, dex, wil);
+}
+
+export function getArcana() {
+  console.log ('getArcana called');
+  return (arcanum[getRandomInt(arcanum.length)]);
 }
 
 export function updateMoney(player) {
@@ -92,29 +110,19 @@ export function getStarterPackage(player) {
   console.log('Column, Row: ', starterPackages.length, starterPackages[0].length, i, j);
   let inventory = starterPackages[i][j];
 
-  // equipmentArray is a temporary variable to hold gridItemEquipment data.
-  let equipmentArray = ['','','','','','','','','','','',''];
-  for (let k=0; k<equipmentArray.length - 1; k++) {
-    // Copy equipment to populate equipmentArray.
-    if (inventory.equipment[k]) {
-        equipmentArray[k] = inventory.equipment[k];
-    }
-  }
-
-  if (inventory.arcanum) {
-    equipmentArray[inventory.equipment.length] = getArcana().name;
-  }
-
-  gridItemCompanion.set(inventory.companion);
-
   player.equipment = inventory.equipment;
+  if (inventory.arcanum) {
+    player.equipment[inventory.equipment.length] = getArcana().name;
+  }
+  player.companion = inventory.companion;
   player.specialInformation = inventory.specialInformation;
   player.equipment = inventory.equipment;
 
   console.log('get Starter package called ', player);
 
   updatePlayerName(player);
-  updateGridItems(equipmentArray);
+  updateEquipment(player);
+  updateCompanion(player);
   updateMoney(player);
 
   return starterPackages[i][j];
@@ -134,17 +142,3 @@ export function createPlayer() {
   updateAbilities(player);
   getStarterPackage(player);
 }
-
-export function getArcana() {
-  console.log ('getArcana called');
-  return (arcanum[getRandomInt(arcanum.length)]);
-}
-
-function getRandomInt(max) {  
-  return Math.floor(Math.random() * max);
-}
-
-function getRandom3d6() {
-  return (getRandomInt(6) + 1 + getRandomInt(6) + 1 + getRandomInt(6) + 1);
-}
-

@@ -13,7 +13,6 @@
       gridItemShillings,
       gridItemPennies,
       gridItemGuilders,
-      myplayer,
       createPlayer
       } from './stores';
 </script>
@@ -139,7 +138,7 @@
       <div class="grid-container">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="grid-heading" id="abilities" on:click={() => {
-          createPlayer(myplayer);
+          createPlayer();
         }}>ABILITIES</div>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="grid-heading" id="equipment" on:click={() => {
