@@ -3,9 +3,6 @@
 import { writable } from 'svelte/store';
 import { starterPackages, arcanum, names, companionNames } from './oddpendium.js';
 
-
-const maxEquipmentSlots = 12;
-
 // gridItems are stat stores that are mapped to divs in +layout.svelte.
 export const title = writable('INTO THE ODD');
 export const playerName = writable('');
@@ -34,8 +31,12 @@ let player = {
   moneyGuilders:0
 };
 
-/* An item which can be any object that can be picked up.
-   Once picked up, items become equipment.*/
+/*
+An item which can be any object that can be picked up.
+Once picked up, items become equipment.
+Categories are: Crude Weapon, Hand Weapon, Field Weapon, Noble Weapon, Heavy Gun, Modern Armour
+Crude Armour, Shield, Explosive, Medicine, Chemical.
+*/
 let item = {
   name: '',
   bulky: Boolean,
