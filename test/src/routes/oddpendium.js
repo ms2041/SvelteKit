@@ -709,3 +709,46 @@ export const companionNames = [
   'Mars',
   'Victorious'
 ];
+
+export const equipment = [
+  {
+    name: 'Unarmed attack',
+    bulky: false,
+    category: 'normal',
+    number: 0,
+    description: '',
+    damage: 4,
+    armour: 0,
+    cost: 0
+  },
+  {
+    name: '',
+    bulky: true,
+    category: 'Crude Weapon',
+    number: 0,
+    description: 'Bow, pitchfork, barstool',
+    damage: 6,
+    armour: 0,
+    cost: 1
+  },
+  {
+    name: '',
+    bulky: false,
+    category: 'Hand Weapon',
+    number: 0,
+    description: 'Dagger, sword, pistol, club',
+    damage: 6,
+    armour: 0,
+    cost: '2s'
+  },
+  {
+    name:  '',
+    bulky: true,
+    category: 'Field Weapon',
+    number: 0,
+    description: 'Musket, brace of pistols, sword and dagger, halberd, etc.',
+    damage: 8,
+    armour: 0,
+    cost: 10
+  }
+];

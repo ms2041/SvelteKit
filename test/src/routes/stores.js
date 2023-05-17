@@ -43,6 +43,7 @@ let item = {
   name: '',
   bulky: Boolean,
   category: 'normal',
+  number: 0,
   description: '',
   damage: 0,
   armour: 0,
@@ -88,6 +89,36 @@ export function modifyMoney(denomination, value) {
       break;
   }
   updateMoney(player);
+}
+
+function shiftEquipmentLeft() {
+  let emptyCount = 0;
+
+  // Loop through the equipment array
+  for (let i = 0; i < player.equipment.length; i++) {
+    // If the current element is empty, count the number of empty strings
+    if (player.equipment[i] === '') {
+      emptyCount++;
+    }
+    // If the current element is not empty and there are empty strings before it, shift it to the left
+    else if (emptyCount > 0) {
+      player.equipment[i - emptyCount] = player.equipment[i];
+      player.equipment[i] = '';
+    }
+  }
+}
+
+export function removeEquipment(slot) {
+  console.log('Remove equipment from slot ', slot);
+  player.equipment[slot] = '';
+  shiftEquipmentLeft();
+  updateEquipment(player);
+}
+
+export function addEquipment(slot) {
+  console.log('Add equipment to slot ', slot);
+  shiftEquipmentLeft();
+  updateEquipment(player);
 }
 
 export function updateEquipment(player) {

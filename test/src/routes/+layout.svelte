@@ -16,6 +16,8 @@
       gridItemGuilders,
       createPlayer,
       modifyAbility,
+      removeEquipment,
+      addEquipment,
       modifyMoney
       } from './stores';
 </script>
@@ -89,6 +91,35 @@
     cursor: pointer;
   }
 
+  #equipmentSlot-0,
+  #equipmentSlot-1,
+  #equipmentSlot-2,
+  #equipmentSlot-3,
+  #equipmentSlot-4,
+  #equipmentSlot-5,
+  #equipmentSlot-6,
+  #equipmentSlot-7,
+  #equipmentSlot-8,
+  #equipmentSlot-9,
+  #equipmentSlot-10,
+  #equipmentSlot-11 {
+    cursor: pointer;
+  }
+  #equipmentSlot-0:hover,
+  #equipmentSlot-1:hover,
+  #equipmentSlot-2:hover,
+  #equipmentSlot-3:hover,
+  #equipmentSlot-4:hover,
+  #equipmentSlot-5:hover,
+  #equipmentSlot-6:hover,
+  #equipmentSlot-7:hover,
+  #equipmentSlot-8:hover,
+  #equipmentSlot-9:hover,
+  #equipmentSlot-10:hover,
+  #equipmentSlot-11:hover {
+    color: rgb(185, 235, 255);
+  }
+
   .grid-container {
     position: absolute;
     bottom: 16px;
@@ -107,6 +138,7 @@
     display: flex;
     align-items: center;
     text-align: left;
+    font-size: 16px;
   }
 
   .grid-heading {
@@ -139,22 +171,20 @@
   #str:hover ~ .sub-grid-item {
     color: rgb(185, 235, 255);
   }
-
   #dex:hover,
   #dex:hover ~ .sub-grid-item {
     color: rgb(185, 235, 255);
   }
-
   #wil:hover,
   #wil:hover ~ .sub-grid-item {
     color: rgb(185, 235, 255);
   }
-
   #hp:hover,
   #hp:hover ~ .sub-grid-item {
     color: rgb(185, 235, 255);
   }
 
+  /* When a money denomination is being hovered, the header as well as it's value turns blue. */
   .grid-item-money {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -199,10 +229,14 @@
             on:click={() => modifyAbility('str', -1)}>STR</button>
           <div class="sub-grid-item">{$gridItemStr}</div>
         </div>
-        <div class="grid-item" id="equipmentSlot-0">{$gridItemEquipment[0]}</div>
-        <div class="grid-item" id="equipmentSlot-1">{$gridItemEquipment[1]}</div>
-        <div class="grid-item" id="equipmentSlot-2">{$gridItemEquipment[2]}</div>
-        <div class="grid-item" id="equipmentSlot-3">{$gridItemEquipment[3]}</div>
+        <button class="grid-item invisible-button" id="equipmentSlot-0" on:contextmenu={() => removeEquipment(0)}
+          on:click={() => addEquipment(0)}>{$gridItemEquipment[0]}</button>
+        <button class="grid-item invisible-button" id="equipmentSlot-1" on:contextmenu={() => removeEquipment(1)}
+          on:click={() => addEquipment(1)}>{$gridItemEquipment[1]}</button>
+        <button class="grid-item invisible-button" id="equipmentSlot-2" on:contextmenu={() => removeEquipment(2)}
+          on:click={() => addEquipment(2)}>{$gridItemEquipment[2]}</button>
+        <button class="grid-item invisible-button" id="equipmentSlot-3" on:contextmenu={() => removeEquipment(3)}
+          on:click={() => addEquipment(3)}>{$gridItemEquipment[3]}</button>
         <div class="grid-item-money">
           <button class="sub-grid-item invisible-button" id='shillings' on:contextmenu={() => modifyMoney('shillings', 1)} 
             on:click={() => modifyMoney('shillings', -1)}>{$gridItemShillings}S</button>
@@ -216,20 +250,28 @@
             on:click={() => modifyAbility('dex', -1)}>DEX</button>
           <div class="sub-grid-item">{$gridItemDex}</div>
         </div>
-        <div class="grid-item" id="equipmentSlot-4">{$gridItemEquipment[4]}</div>
-        <div class="grid-item" id="equipmentSlot-5">{$gridItemEquipment[5]}</div>
-        <div class="grid-item" id="equipmentSlot-6">{$gridItemEquipment[6]}</div>
-        <div class="grid-item" id="equipmentSlot-7">{$gridItemEquipment[7]}</div>
+        <button class="grid-item invisible-button" id="equipmentSlot-4" on:contextmenu={() => removeEquipment(4)}
+          on:click={() => addEquipment(4)}>{$gridItemEquipment[4]}</button>
+        <button class="grid-item invisible-button" id="equipmentSlot-5" on:contextmenu={() => removeEquipment(5)}
+          on:click={() => addEquipment(5)}>{$gridItemEquipment[5]}</button>
+        <button class="grid-item invisible-button" id="equipmentSlot-6" on:contextmenu={() => removeEquipment(6)}
+          on:click={() => addEquipment(6)}>{$gridItemEquipment[6]}</button>
+        <button class="grid-item invisible-button" id="equipmentSlot-7" on:contextmenu={() => removeEquipment(7)}
+          on:click={() => addEquipment(7)}>{$gridItemEquipment[7]}</button>
         <div class="grid-item"></div>
         <div class="grid-item-ability">
           <button class="sub-grid-item invisible-button" id="wil" on:contextmenu={() => modifyAbility('wil', 1)} 
             on:click={() => modifyAbility('wil', -1)}>WIL</button>
           <div class="sub-grid-item">{$gridItemWil}</div>
         </div>
-        <div class="grid-item" id="equipmentSlot-8">{$gridItemEquipment[8]}</div>
-        <div class="grid-item" id="equipmentSlot-9">{$gridItemEquipment[9]}</div>
-        <div class="grid-item" id="equipmentSlot-10">{$gridItemEquipment[10]}</div>
-        <div class="grid-item" id="equipmentSlot-11">{$gridItemEquipment[11]}</div>
+        <button class="grid-item invisible-button" id="equipmentSlot-8" on:contextmenu={() => removeEquipment(8)}
+          on:click={() => addEquipment(8)}>{$gridItemEquipment[8]}</button>
+        <button class="grid-item invisible-button" id="equipmentSlot-9" on:contextmenu={() => removeEquipment(9)}
+          on:click={() => addEquipment(9)}>{$gridItemEquipment[9]}</button>
+        <button class="grid-item invisible-button" id="equipmentSlot-10" on:contextmenu={() => removeEquipment(10)}
+          on:click={() => addEquipment(10)}>{$gridItemEquipment[10]}</button>
+        <button class="grid-item invisible-button" id="equipmentSlot-11" on:contextmenu={() => removeEquipment(11)}
+          on:click={() => addEquipment(11)}>{$gridItemEquipment[11]}</button>
         <div class="grid-heading">COMPANION</div>
         <div class="grid-item-ability">
           <button class="sub-grid-item invisible-button" id="hp" on:contextmenu={() => modifyAbility('hp', 1)} 
