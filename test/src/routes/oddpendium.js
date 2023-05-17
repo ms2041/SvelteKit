@@ -151,7 +151,7 @@ export const starterPackages = [
       specialInformation: ''
     },
     {
-      equipment: ['Hatchet (d6)', 'Pistol (d6)', 'Bolt- Cutters'],
+      equipment: ['Hatchet (d6)', 'Pistol (d6)', 'Bolt-Cutters'],
       arcanum: true,
       companion: '',
       specialInformation: ''
@@ -595,7 +595,7 @@ export const starterPackages = [
       specialInformation: 'Disfigured'
     }
   ]
-]
+];
 
 export const arcanum = [
   {name: 'Gatekeeper\’s Sigil', description: 'Create a gate between two flat surfaces that you can see. The gates close if you pass through or break line of sight.'},

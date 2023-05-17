@@ -19,6 +19,15 @@ h1 {
   src: url('/fonts/IMFeDPrm29C.otf') format('opentype');
 }
 
+.invisible-button {
+  background: none;
+  border: none;
+  outline: none;
+  color: antiquewhite;
+  padding: 0;
+  cursor: pointer;
+}
+
 * {
   -webkit-user-select: none;
   -moz-user-select: none;

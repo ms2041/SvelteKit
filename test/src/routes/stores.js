@@ -12,6 +12,7 @@ export const gridItemWil = writable(0);
 export const gridItemHp = writable(0);
 export const gridItemEquipment = writable(['', '', '', '', '', '', '', '', '', '', '', '']);
 export const gridItemCompanion = writable('');
+export const gridItemSpecialInformation = writable('');
 export const gridItemShillings = writable(0);
 export const gridItemPennies = writable(0);
 export const gridItemGuilders = writable(0);
@@ -23,12 +24,13 @@ let player = {
   dex: 0,
   wil: 0,
   hp: 0,
-  equipment: [],
+  equipment: ['', '', '', '', '', '', '', '', '', '', '', ''],
+  equipmentPtr: 0,
   companion: '',
   specialInformation: '',
-  moneyShillings: 9,
-  moneyPennies: 0,
-  moneyGuilders:0
+  shillings: 0,
+  pennies: 0,
+  guilders:0
 };
 
 /*
@@ -55,6 +57,39 @@ function getRandom3d6() {
   return (getRandomInt(6) + 1 + getRandomInt(6) + 1 + getRandomInt(6) + 1);
 }
 
+export function modifyAbility(ability, value) {
+  switch (ability) {
+    case 'str':
+      player.str = player.str + value;
+      break;
+    case 'dex':
+      player.dex = player.dex + value;
+      break;
+    case 'wil':
+      player.wil = player.wil + value;
+      break;
+    case 'hp':
+      player.hp = player.hp + value;
+      break;
+  }
+  updateAbilities(player);
+}
+
+export function modifyMoney(denomination, value) {
+  switch (denomination) {
+    case 'shillings':
+      player.shillings = player.shillings + value;
+      break;
+    case 'pennies':
+      player.pennies = player.pennies + value;
+      break;
+    case 'guilders':
+      player.guilders = player.guilders + value;
+      break;
+  }
+  updateMoney(player);
+}
+
 export function updateEquipment(player) {
   // equipmentArray is a temporary variable to hold gridItemEquipment data.
   let equipmentArray = ['','','','','','','','','','','',''];
@@ -79,6 +114,10 @@ export function updateCompanion(player) {
   gridItemCompanion.set(player.companion);
 }
 
+export function updateSpecialInformation(player) {
+  gridItemSpecialInformation.set(player.specialInformation);
+}
+
 export function updateAbilities(player) {
   gridItemStr.set(player.str);
   gridItemDex.set(player.dex);
@@ -93,36 +132,42 @@ export function getHighestAbility(player) {
 }
 
 export function getArcana() {
-  console.log ('getArcana called');
-  return (arcanum[getRandomInt(arcanum.length)]);
+  let item = arcanum[getRandomInt(arcanum.length)];
+  console.log ('getArcana called ', item.name);
+  return (item);
 }
 
 export function updateMoney(player) {
-  gridItemShillings.set(player.moneyShillings);
-  gridItemPennies.set(player.moneyPennies);
-  gridItemGuilders.set(player.moneyGuilders);
-  console.log('Update money: ', player.moneyShillings, player.moneyPennies, player.moneyGuilders)
+  gridItemShillings.set(player.shillings);
+  gridItemPennies.set(player.pennies);
+  gridItemGuilders.set(player.guilders);
+  console.log('Update money: ', player.shillings, player.pennies, player.guilders)
 }
 
 export function getStarterPackage(player) {
+  console.log('2 starterPackages: ', starterPackages);
   // Choose a starter package and initialise player with equipment.
   let i = player.hp - 1;
   let j = getHighestAbility(player) - 3; // The range of the array is from 3 - 18.
-  console.log('Column, Row: ', starterPackages.length, starterPackages[0].length, i, j);
-  let inventory = starterPackages[i][j];
+  let selectedPackage = starterPackages[i][j];
+  player.equipmentPtr = selectedPackage.equipment.length
+  console.log('Column, Row: ', starterPackages.length, starterPackages[0].length, i, j, starterPackages[i][j], player.equipmentPtr);
 
-  player.equipment = inventory.equipment;
-  if (inventory.arcanum) {
-    player.equipment[inventory.equipment.length] = getArcana().name;
+  player.equipment = [...selectedPackage.equipment];
+  if (selectedPackage.arcanum) {
+    let selectedArcana = getArcana();
+    player.equipment[player.equipmentPtr] = selectedArcana.name;
+    player.equipmentPtr++;
+    console.log('Arcana added ', selectedPackage.equipment, player, ' at ', player.equipmentPtr)
   }
-  player.companion = inventory.companion;
-  player.specialInformation = inventory.specialInformation;
-  player.equipment = inventory.equipment;
+  player.companion = selectedPackage.companion;
+  player.specialInformation = selectedPackage.specialInformation;
 
   console.log('get Starter package called ', player);
 
   updatePlayerName(player);
   updateEquipment(player);
+  updateSpecialInformation(player);
   updateCompanion(player);
   updateMoney(player);
 
@@ -130,16 +175,20 @@ export function getStarterPackage(player) {
 }
 
 export function createPlayer() {
+  console.log('1 starterPackages: ', starterPackages);
+
   player.name = getPlayerName(player);
   player.str = getRandom3d6();
   player.dex = getRandom3d6();
   player.wil = getRandom3d6();
   player.hp = getRandomInt(6) + 1;
-  player.moneyShillings = 0;
-  player.moneyPennies = 0;
-  player.moneyGuilders = 0;
+  player.equipment = ['', '', '', '', '', '', '', '', '', '', '', ''];
+  player.equipmentPtr = 0;
+  player.shillings = 0;
+  player.pennies = 0;
+  player.guilders = 0;
 
-  console.log('createPlayer called', player.name, player);
+  console.log('createPlayer called', player);
   updateAbilities(player);
   getStarterPackage(player);
 }
