@@ -23,6 +23,7 @@
     top: 0;
     left: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -33,7 +34,7 @@
       height: 55%;
       border-radius: 10px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       margin-top: -108px;
       position: relative; /* Positions the close button. */
@@ -46,13 +47,24 @@
       color: black;
       cursor: pointer;
     }
+    .close:hover {
+        font-weight: bold;
+    }
+
+    .save { /* Save button. */
+      margin-top: auto;
+      margin-bottom: 20px;
+      color: black;
+      cursor: pointer;
+    }
 </style>
 
 {#if writable.modal}
 <div class=modal-wrapper>
   <div class="modal">
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <span class="close" on:click={()=>hideModal()}>&times;</span>
+    <div class="close" on:click={()=>hideModal()}>&times;</div>
+    <button class="save" on:click={() => hideModal()}>Save</button>
   </div>
 </div>
 {/if}
