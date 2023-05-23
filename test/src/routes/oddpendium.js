@@ -710,45 +710,144 @@ export const companionNames = [
   'Victorious'
 ];
 
-export const equipment = [
+export const items = [
   {
-    name: 'Unarmed attack',
-    bulky: false,
-    category: 'normal',
-    number: 0,
-    description: '',
-    damage: 4,
-    armour: 0,
-    cost: 0
-  },
-  {
-    name: '',
+    category:'Improvised Weapon',
+    item: 0,
+    selection: [
+      {
+        name: 'Pitchfork',
+        description: 'Useful for hunting witches.'
+      },
+      {
+        name: 'Barstool',
+        description: 'Would not be my weapon of choice, but will do in a pinch.'
+      },
+      {
+        name: 'Rake',
+        description: 'Especially potent versus demons.'
+      }],
     bulky: true,
-    category: 'Crude Weapon',
     number: 0,
-    description: 'Bow, pitchfork, barstool',
     damage: 6,
     armour: 0,
-    cost: 1
+    cost: '1S'
   },
   {
-    name: '',
-    bulky: false,
     category: 'Hand Weapon',
+    item: 0,
+    selection:[
+      {
+        name: 'Dagger',
+        description: 'Silent but deadly. Can be thrusted or thrown.',
+      },
+      {
+        name: 'Sword',
+        description: 'Classic.'
+      },
+      {
+        name: 'Pistol',
+        description: 'A flintlock can be loaded and fired in 20 seconds.'
+      },
+      {
+        name: 'Baton',
+        description: 'Made of wood, it is the weapon of choice for militia.',
+      }
+    ],
+    bulky: false,
     number: 0,
-    description: 'Dagger, sword, pistol, club',
     damage: 6,
     armour: 0,
-    cost: '2s'
+    cost: '2S'
   },
   {
-    name:  '',
-    bulky: true,
     category: 'Field Weapon',
+    item: 0,
+    selecton: [
+      {
+        name: 'Musket',
+        description: '6ft long and can be loaded with shot or ball.',
+      },
+      {
+        name: 'Brace of Pistols',
+        description: 'A two-handed assault tactic.'
+      },
+      {
+        name: 'Halberd',
+        description: 'An axe on a pole. Very versatile.'
+      },
+      {
+        name: 'Rapier and Dagger',
+        description: 'A classic combination. The nmain-gauche is used for parrying.',
+      }
+    ],
+    bulky: true,
     number: 0,
-    description: 'Musket, brace of pistols, sword and dagger, halberd, etc.',
     damage: 8,
     armour: 0,
-    cost: 10
+    cost: '10S'
+  },
+  {
+    category: 'Modern Armour',
+    item: 0,
+    selection: [
+      {
+        name: 'Cuirass',
+        description: 'Chestplate and back piece, weighing in excess of 10lbs.',
+      },
+      {
+        name: 'Helm',
+        description: 'The pot helmet or morion is standard issue in most modern armies.'
+      },
+      {
+        name: 'Buckler',
+        description: 'Often combined with a rapier or sword, it can be used in defence and offence.'
+      }
+    ],
+    bulky: false,
+    number: 0,
+    damage: 0,
+    armour: 0,
+    cost: '50S'
+  },
+  {
+    category: 'Explosive',
+    item: 0,
+    selection: [
+      {
+        name: 'Grenade',
+        description: 'Cricket ball sized bomb, filled with black powder, used by grenadiers.',
+      },
+      {
+        name: 'Rocket',
+        description: 'A grenade on a stick.'
+      }
+    ],
+    bulky: false,
+    number: 0,
+    damage: 10,
+    armour: 0,
+    cost: '20S'
+  },
+  {
+    category: 'Explosive',
+    item: 0,
+    selection: ['Smoke-bomb'],
+    bulky: false,
+    number: 0,
+    description: 'Combustable device that causes confusion. Attacks through the smoke are Impaired.',
+    damage: 0,
+    armour: 0,
+    cost: '10S'
+  },
+  {
+    category: 'Explosive',
+    selection: ['Flashbang'],
+    bulky: false,
+    number: 0,
+    description: 'Momentarily blinds anyone that fails a DEX Save.',
+    damage: 0,
+    armour: 0,
+    cost: '10S'
   }
 ];

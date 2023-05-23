@@ -50,6 +50,8 @@ let item = {
   cost: 0
 }
 
+//-----------------------------------------------------------------------------
+
 function getRandomInt(max) {  
   return Math.floor(Math.random() * max);
 }
@@ -57,24 +59,57 @@ function getRandomInt(max) {
 function getRandom3d6() {
   return (getRandomInt(6) + 1 + getRandomInt(6) + 1 + getRandomInt(6) + 1);
 }
+//-----------------------------------------------------------------------------
 
 export function modifyAbility(ability, value) {
   switch (ability) {
     case 'str':
-      player.str = player.str + value;
+      if ((player.str + value) >= 0) {
+        player.str = player.str + value;
+      } else {
+        player.str = 0;
+      }
       break;
     case 'dex':
-      player.dex = player.dex + value;
+      if ((player.dex + value) >= 0) {
+        player.dex = player.dex + value;
+      } else {
+        player.dex = 0;
+      }
       break;
     case 'wil':
-      player.wil = player.wil + value;
+      if ((player.wil + value) >= 0) {
+        player.wil = player.wil + value;
+      } else {
+        player.wil = 0;
+      }
       break;
     case 'hp':
-      player.hp = player.hp + value;
+      if ((player.hp + value) >= 0) {
+        player.hp = player.hp + value;
+      } else {
+        player.hp = 0;
+      }
       break;
   }
   updateAbilities(player);
 }
+
+
+export function updateAbilities(player) {
+  gridItemStr.set(player.str);
+  gridItemDex.set(player.dex);
+  gridItemWil.set(player.wil);
+  gridItemHp.set(player.hp);
+  console.log('Update abilities:', player);
+}
+
+export function getHighestAbility(player) {
+  const { str, dex, wil } = player;
+  return Math.max(str, dex, wil);
+}
+
+//-----------------------------------------------------------------------------
 
 export function modifyMoney(denomination, value) {
   switch (denomination) {
@@ -90,6 +125,15 @@ export function modifyMoney(denomination, value) {
   }
   updateMoney(player);
 }
+
+export function updateMoney(player) {
+  gridItemShillings.set(player.shillings);
+  gridItemPennies.set(player.pennies);
+  gridItemGuilders.set(player.guilders);
+  console.log('Update money: ', player.shillings, player.pennies, player.guilders)
+}
+
+//-----------------------------------------------------------------------------
 
 function shiftEquipmentLeft() {
   let emptyCount = 0;
@@ -133,6 +177,8 @@ export function updateEquipment(player) {
   gridItemEquipment.set(equipmentArray);
 }
 
+//-----------------------------------------------------------------------------
+
 export function getPlayerName() {
   return(names[getRandomInt(names.length)]);
 }
@@ -148,31 +194,10 @@ export function updateCompanion(player) {
 export function updateSpecialInformation(player) {
   gridItemSpecialInformation.set(player.specialInformation);
 }
-
-export function updateAbilities(player) {
-  gridItemStr.set(player.str);
-  gridItemDex.set(player.dex);
-  gridItemWil.set(player.wil);
-  gridItemHp.set(player.hp);
-  console.log('Update abilities:', player);
-}
-
-export function getHighestAbility(player) {
-  const { str, dex, wil } = player;
-  return Math.max(str, dex, wil);
-}
-
 export function getArcana() {
   let item = arcanum[getRandomInt(arcanum.length)];
   console.log ('getArcana called ', item.name);
   return (item);
-}
-
-export function updateMoney(player) {
-  gridItemShillings.set(player.shillings);
-  gridItemPennies.set(player.pennies);
-  gridItemGuilders.set(player.guilders);
-  console.log('Update money: ', player.shillings, player.pennies, player.guilders)
 }
 
 export function getStarterPackage(player) {
