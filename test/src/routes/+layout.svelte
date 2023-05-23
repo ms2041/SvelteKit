@@ -1,6 +1,7 @@
 <script>
     import '../app.css';
     import { writable } from 'svelte/store';
+    import ModalAddItem from './ModalAddItem/ModalAddItem.svelte';
     import { 
       title,
       playerName,
@@ -20,6 +21,11 @@
       addEquipment,
       modifyMoney
       } from './stores';
+
+      // Create a writable store for the showModal state
+      const modal = writable(false);
+
+      let modalAddItemRef;
 </script>
 
 <style>
@@ -271,7 +277,7 @@
         <button class="grid-item invisible-button" id="equipmentSlot-10" on:contextmenu={() => removeEquipment(10)}
           on:click={() => addEquipment(10)}>{$gridItemEquipment[10]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-11" on:contextmenu={() => removeEquipment(11)}
-          on:click={() => addEquipment(11)}>{$gridItemEquipment[11]}</button>
+          on:click={() => modalAddItemRef.showModal()}>{$gridItemEquipment[11]}Show Modal</button>
         <div class="grid-heading">COMPANION</div>
         <div class="grid-item-ability">
           <button class="sub-grid-item invisible-button" id="hp" on:contextmenu={() => modifyAbility('hp', 1)} 
@@ -284,4 +290,5 @@
         <div class="grid-item span-4" id="special-info">{$gridItemSpecialInformation}</div>
       </div>
     </div>
+    <ModalAddItem bind:this={modalAddItemRef}/>
   </body>
