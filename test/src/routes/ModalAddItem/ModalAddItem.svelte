@@ -1,15 +1,18 @@
 <script>
   import { writable } from 'svelte/store';
 
+  // Create a writable store instance for the modal
+  export const modal = writable(false);
+
   export function showModal() {
     console.log('Show Modal');
-    writable.modal = true;
+    modal.set(true);
     // Extra code here.
   }
 
   export function hideModal() {
     console.log('Hide Modal');
-    writable.modal = false;
+    modal.set(false);
     // Extra code here.
   }
 </script>
@@ -59,7 +62,7 @@
     }
 </style>
 
-{#if writable.modal}
+{#if $modal}
 <div class=modal-wrapper>
   <div class="modal">
     <!-- svelte-ignore a11y-click-events-have-key-events -->

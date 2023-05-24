@@ -22,8 +22,6 @@
       modifyMoney
       } from './stores';
 
-      // Create a writable store for the showModal state
-      const modal = writable(false);
 
       let modalAddItemRef;
 </script>
