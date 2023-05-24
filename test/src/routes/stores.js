@@ -4,7 +4,6 @@ import { writable } from 'svelte/store';
 import { starterPackages, arcanum, names, companionNames } from './oddpendium.js';
 //import ModalAddItem from './ModalAddItem/ModalAddItem.svelte';
 import { showModal, hideModal } from './ModalAddItem/ModalAddItem';
-import { null_to_empty } from 'svelte/internal';
 
 // gridItems are stat stores that are mapped to divs in +layout.svelte.
 export const title = writable('INTO THE ODD');

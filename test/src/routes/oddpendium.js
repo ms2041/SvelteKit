@@ -712,28 +712,6 @@ export const companionNames = [
 
 export const items = [
   {
-    category:'Improvised Weapon',
-    item: 0,
-    selection: [
-      {
-        name: 'Pitchfork',
-        description: 'Useful for hunting witches.'
-      },
-      {
-        name: 'Barstool',
-        description: 'Would not be my weapon of choice, but will do in a pinch.'
-      },
-      {
-        name: 'Rake',
-        description: 'Especially potent versus demons.'
-      }],
-    bulky: true,
-    number: 0,
-    damage: 6,
-    armour: 0,
-    cost: '1S'
-  },
-  {
     category: 'Hand Weapon',
     item: 0,
     selection:[
@@ -751,7 +729,7 @@ export const items = [
       },
       {
         name: 'Baton',
-        description: 'Made of wood, it is the weapon of choice for militia.',
+        description: 'Made of wood, it is the weapon of choice for militia.'
       }
     ],
     bulky: false,
@@ -832,22 +810,115 @@ export const items = [
   {
     category: 'Explosive',
     item: 0,
-    selection: ['Smoke-bomb'],
+    selection: [{
+      name: 'Smoke-bomb',
+      description: 'Combustable device that causes confusion. Attacks through the smoke are Impaired.'
+    }],
     bulky: false,
     number: 0,
-    description: 'Combustable device that causes confusion. Attacks through the smoke are Impaired.',
     damage: 0,
     armour: 0,
     cost: '10S'
   },
   {
     category: 'Explosive',
-    selection: ['Flashbang'],
+    item: 0,
+    selection: [{
+      name: 'Flashbang',
+      description: 'Momentarily blinds anyone that fails a DEX Save.'
+    }],
     bulky: false,
     number: 0,
-    description: 'Momentarily blinds anyone that fails a DEX Save.',
     damage: 0,
     armour: 0,
     cost: '10S'
-  }
+  },
+  {
+    category: 'Chemical',
+    item: 0,
+    selection: [{
+      name: 'Poison',
+      description: 'Lose 20 STR if consumed.'
+    }],
+    bulky: false,
+    number: 0,
+    damage: 0,
+    armour: 0,
+    cost: '10S'
+  },
+  {
+    category: 'Chemical',
+    item: 0,
+    selection: [{
+      name: 'Acid',
+      description: 'D6 Damage, burns through most materials.'
+    }],
+    bulky: false,
+    number: 0,
+    damage: 0,
+    armour: 0,
+    cost: '10S'
+  },
+  {
+    category: 'Medicine',
+    item: 0,
+    selection: [{
+      name: 'Antitoxin',
+      description: 'Neutralises most toxins.'
+    }],
+    bulky: false,
+    number: 0,
+    damage: 0,
+    armour: 0,
+    cost: '10S'
+  },
+  {
+    category:'Tool',
+    item: 0,
+    selection: [
+      {
+        name: 'Pitchfork',
+        description: 'Useful for hunting witches.'
+      },
+      {
+        name: 'Barstool',
+        description: 'Would not be my weapon of choice, but will do in a pinch.'
+      },
+      {
+        name: 'Rake',
+        description: 'Especially potent versus demons.'
+      }],
+    bulky: true,
+    number: 0,
+    damage: 6,
+    armour: 0,
+    cost: '1S'
+  },
+
+  {
+    category: 'Tool',
+    item: 0,
+    selection: [{
+      name: 'Lockpicks',
+      description: 'Can open most doors and padlocks.'
+    }],
+    bulky: false,
+    number: 0,
+    damage: 0,
+    armour: 0,
+    cost: '10S'
+  },
+  {
+    category: 'Loot',
+    item: 0,
+    selection: [{
+      name: 'Elaborate Fashion',
+      description: 'Fine tailored clothing.'
+    }],
+    bulky: false,
+    number: 0,
+    damage: 0,
+    armour: 0,
+    cost: '10S'
+  },
 ];

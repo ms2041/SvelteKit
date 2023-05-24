@@ -2,7 +2,7 @@
     import '../app.css';
     import { writable } from 'svelte/store';
     import ModalAddItem from './ModalAddItem/ModalAddItem.svelte';
-    import { showModal, hideModal } from './ModalAddItem/ModalAddItem';
+    import { extractCategories, showModal, hideModal } from './ModalAddItem/ModalAddItem';
     import { 
       title,
       playerName,
@@ -22,7 +22,6 @@
       addEquipment,
       modifyMoney
       } from './stores';
-
 
       let modalAddItemRef;
 </script>
