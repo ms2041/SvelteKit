@@ -2,6 +2,9 @@
 
 import { writable } from 'svelte/store';
 import { starterPackages, arcanum, names, companionNames } from './oddpendium.js';
+//import ModalAddItem from './ModalAddItem/ModalAddItem.svelte';
+import { showModal, hideModal } from './ModalAddItem/ModalAddItem';
+import { null_to_empty } from 'svelte/internal';
 
 // gridItems are stat stores that are mapped to divs in +layout.svelte.
 export const title = writable('INTO THE ODD');
@@ -135,34 +138,32 @@ export function updateMoney(player) {
 
 //-----------------------------------------------------------------------------
 
-function shiftEquipmentLeft() {
-  let emptyCount = 0;
-
-  // Loop through the equipment array
-  for (let i = 0; i < player.equipment.length; i++) {
-    // If the current element is empty, count the number of empty strings
-    if (player.equipment[i] === '') {
-      emptyCount++;
-    }
-    // If the current element is not empty and there are empty strings before it, shift it to the left
-    else if (emptyCount > 0) {
-      player.equipment[i - emptyCount] = player.equipment[i];
-      player.equipment[i] = '';
+function reorderEquipment() {
+  for (let i = player.equipment.length - 1; i >= 0; i--) {
+    if (player.equipment[i] === undefined || player.equipment[i] === null || player.equipment[i] === "") {
+      player.equipment.splice(i, 1);
     }
   }
+  console.log('reorderEquipment ', player.equipment, player.equipment.length);
 }
-
 export function removeEquipment(slot) {
   console.log('Remove equipment from slot ', slot);
-  player.equipment[slot] = '';
-  shiftEquipmentLeft();
+  player.equipment[slot] = null;
+  player.equipmentPtr = player.equipmentPtr - 1;
+  reorderEquipment();
   updateEquipment(player);
 }
 
 export function addEquipment(slot) {
-  console.log('Add equipment to slot ', slot);
-  shiftEquipmentLeft();
+  console.log('Add equipment to slot ', slot, player.equipment);
+  if ((player.equipment[slot] == null) || (player.equipment[slot] == '')) {
+    showModal();
+  } else {
+    console.log('Equipment already in slot ', slot);
+  }
+  reorderEquipment();
   updateEquipment(player);
+  console.log('Equipment slots shifted ', slot, player.equipment);
 }
 
 export function updateEquipment(player) {

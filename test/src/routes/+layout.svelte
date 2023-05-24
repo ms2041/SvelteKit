@@ -2,6 +2,7 @@
     import '../app.css';
     import { writable } from 'svelte/store';
     import ModalAddItem from './ModalAddItem/ModalAddItem.svelte';
+    import { showModal, hideModal } from './ModalAddItem/ModalAddItem';
     import { 
       title,
       playerName,
@@ -273,9 +274,9 @@
         <button class="grid-item invisible-button" id="equipmentSlot-9" on:contextmenu={() => removeEquipment(9)}
           on:click={() => addEquipment(9)}>{$gridItemEquipment[9]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-10" on:contextmenu={() => removeEquipment(10)}
-          on:click={() => addEquipment(10)}>{$gridItemEquipment[10]}</button>
+          on:click={() => {addEquipment(10); showModal()}}>{$gridItemEquipment[10]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-11" on:contextmenu={() => removeEquipment(11)}
-          on:click={() => modalAddItemRef.showModal()}>{$gridItemEquipment[11]}Show Modal</button>
+          on:click={() => showModal()}>{$gridItemEquipment[11]}Show Modal</button>
         <div class="grid-heading">COMPANION</div>
         <div class="grid-item-ability">
           <button class="sub-grid-item invisible-button" id="hp" on:contextmenu={() => modifyAbility('hp', 1)} 
