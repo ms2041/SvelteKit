@@ -729,19 +729,19 @@ export const items = [
       },
       {
         name: 'Baton',
-        description: 'Made of wood, it is the weapon of choice for militia.'
+        description: 'Made of wood, commonly used by militia.'
       }
     ],
     bulky: false,
     number: 0,
-    damage: 6,
+    damage: [6, 6, 6, 6],
     armour: 0,
     cost: '2S'
   },
   {
     category: 'Field Weapon',
     item: 0,
-    selecton: [
+    selection:[
       {
         name: 'Musket',
         description: '6ft long and can be loaded with shot or ball.',
@@ -761,7 +761,7 @@ export const items = [
     ],
     bulky: true,
     number: 0,
-    damage: 8,
+    damage: [8, 8, 8, 8],
     armour: 0,
     cost: '10S'
   },
@@ -785,7 +785,7 @@ export const items = [
     bulky: false,
     number: 0,
     damage: 0,
-    armour: 0,
+    armour: [1, 1, 1],
     cost: '50S'
   },
   {
@@ -799,76 +799,53 @@ export const items = [
       {
         name: 'Rocket',
         description: 'A grenade on a stick.'
+      },
+      {
+        name: 'Smoke-bomb',
+        description: 'Combustable device that causes confusion. Attacks through the smoke are Impaired.'
+      },
+      {
+        name: 'Flashbang',
+        description: 'Momentarily blinds anyone that fails a DEX Save.'
       }
     ],
     bulky: false,
     number: 0,
-    damage: 10,
+    damage: [10, 10, 0, 0],
     armour: 0,
     cost: '20S'
   },
   {
-    category: 'Explosive',
-    item: 0,
-    selection: [{
-      name: 'Smoke-bomb',
-      description: 'Combustable device that causes confusion. Attacks through the smoke are Impaired.'
-    }],
-    bulky: false,
-    number: 0,
-    damage: 0,
-    armour: 0,
-    cost: '10S'
-  },
-  {
-    category: 'Explosive',
-    item: 0,
-    selection: [{
-      name: 'Flashbang',
-      description: 'Momentarily blinds anyone that fails a DEX Save.'
-    }],
-    bulky: false,
-    number: 0,
-    damage: 0,
-    armour: 0,
-    cost: '10S'
-  },
-  {
     category: 'Chemical',
     item: 0,
-    selection: [{
+    selection: [
+      {
       name: 'Poison',
       description: 'Lose 20 STR if consumed.'
-    }],
+      },
+      {
+        name: 'Acid',
+        description: 'D6 Damage, burns through most materials.'
+      }
+    ],
     bulky: false,
     number: 0,
-    damage: 0,
-    armour: 0,
-    cost: '10S'
-  },
-  {
-    category: 'Chemical',
-    item: 0,
-    selection: [{
-      name: 'Acid',
-      description: 'D6 Damage, burns through most materials.'
-    }],
-    bulky: false,
-    number: 0,
-    damage: 0,
+    damage: [20, 6],
     armour: 0,
     cost: '10S'
   },
   {
     category: 'Medicine',
     item: 0,
-    selection: [{
-      name: 'Antitoxin',
-      description: 'Neutralises most toxins.'
-    }],
+    selection:[
+      {
+        name: 'Antitoxin',
+        description: 'Neutralises most toxins.'
+      }
+    ],
     bulky: false,
     number: 0,
-    damage: 0,
+    damage: [0],
     armour: 0,
     cost: '10S'
   },
@@ -887,26 +864,16 @@ export const items = [
       {
         name: 'Rake',
         description: 'Especially potent versus demons.'
+      },
+      {
+        name: 'Lockpicks',
+        description: 'Can open most doors and padlocks.'
       }],
     bulky: true,
     number: 0,
-    damage: 6,
+    damage: [6, 6, 6, 0],
     armour: 0,
     cost: '1S'
-  },
-
-  {
-    category: 'Tool',
-    item: 0,
-    selection: [{
-      name: 'Lockpicks',
-      description: 'Can open most doors and padlocks.'
-    }],
-    bulky: false,
-    number: 0,
-    damage: 0,
-    armour: 0,
-    cost: '10S'
   },
   {
     category: 'Loot',
@@ -917,7 +884,7 @@ export const items = [
     }],
     bulky: false,
     number: 0,
-    damage: 0,
+    damage: [0],
     armour: 0,
     cost: '10S'
   },

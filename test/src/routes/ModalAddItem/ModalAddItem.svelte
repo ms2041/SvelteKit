@@ -1,6 +1,6 @@
 <script>
   import { writable } from 'svelte/store';
-  import { showModal, hideModal, modal, gridItemCategory, gridItemName, displayItemName } from './ModalAddItem'
+  import { showModal, hideModal, modal, gridItemCategory, gridItemName, displayItemNames, toggleItemNames } from './ModalAddItem'
 </script>
 
 <style>
@@ -57,7 +57,7 @@
     grid-template-columns: repeat(2, 1fr);
     width: 480px;
     height: 200px;    
-    left: 50%;
+    left: 63%;
     transform: translateX(-50%);
     color: #282828;
 }
@@ -69,11 +69,15 @@
     align-items: center;
     text-align: left;
     font-size: 16px;
-    cursor: pointer;
   }
-  .grid-item:hover {
+  .grid-item span {
+    font-weight: normal;
+    cursor: default;
+  }
+  .grid-item span:hover {
     font-weight: bold;
-  }
+    cursor: pointer;
+}
 
 .grid-heading {
     /*border: 1px solid #282828;*/
@@ -115,23 +119,119 @@
     <!-- Grid items -->
     <div class="grid-container">
       <!-- Grid items -->
-      <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-      <div class="grid-item" on:mouseover={() => displayItemName($gridItemCategory[0])}>{$gridItemCategory[0]}</div>
-      <div class="grid-item">{$gridItemName[0]}</div>
-      <div class="grid-item">{$gridItemCategory[1]}</div>
-      <div class="grid-item">{$gridItemName[1]}</div>
-      <div class="grid-item">{$gridItemCategory[2]}</div>
-      <div class="grid-item">{$gridItemName[2]}</div>
-      <div class="grid-item">{$gridItemCategory[3]}</div>
-      <div class="grid-item">{$gridItemName[3]}</div>
-      <div class="grid-item">{$gridItemCategory[4]}</div>
-      <div class="grid-item">{$gridItemName[4]}</div>
-      <div class="grid-item">{$gridItemCategory[5]}</div>
-      <div class="grid-item">{$gridItemName[5]}</div>
-      <div class="grid-item">{$gridItemCategory[6]}</div>
-      <div class="grid-item">{$gridItemName[6]}</div>
-      <div class="grid-item">{$gridItemCategory[7]}</div>
-      <div class="grid-item">{$gridItemName[7]}</div>
+      <div class="grid-item">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <span
+          on:mouseover={() => displayItemNames($gridItemCategory[0])}
+          on:mouseout={() => displayItemNames('')}
+          on:focus={() => displayItemNames($gridItemCategory[0])}
+          on:blur={() => displayItemNames('')}>
+          {$gridItemCategory[0]}
+        </span>
+      </div>
+      <div class="grid-item">
+        {#if $gridItemName[0]}
+          {$gridItemName[0]}
+        {/if}
+      </div>
+      <div class="grid-item">
+        <span
+          on:mouseover={() => displayItemNames($gridItemCategory[1])}
+          on:mouseout={() => displayItemNames('')}
+          on:focus={() => displayItemNames($gridItemCategory[1])}
+          on:blur={() => displayItemNames('')}>
+          {$gridItemCategory[1]}
+        </span>
+      </div>
+      <div class="grid-item">
+        {#if $gridItemName[1]}
+          {$gridItemName[1]}
+        {/if}
+      </div>
+      <div class="grid-item">
+        <span
+          on:mouseover={() => displayItemNames($gridItemCategory[2])}
+          on:mouseout={() => displayItemNames('')}
+          on:focus={() => displayItemNames($gridItemCategory[2])}
+          on:blur={() => displayItemNames('')}>
+          {$gridItemCategory[2]}
+        </span>
+      </div>
+      <div class="grid-item">
+        {#if $gridItemName[2]}
+          {$gridItemName[2]}
+        {/if}
+      </div>
+      <div class="grid-item">
+        <span
+          on:mouseover={() => displayItemNames($gridItemCategory[3])}
+          on:mouseout={() => displayItemNames('')}
+          on:focus={() => displayItemNames($gridItemCategory[3])}
+          on:blur={() => displayItemNames('')}>
+            {$gridItemCategory[3]}
+        </span>
+      </div>
+      <div class="grid-item">
+        {#if $gridItemName[3]}
+          {$gridItemName[3]}
+        {/if}
+      </div>
+      <div class="grid-item">
+        <span
+          on:mouseover={() => displayItemNames($gridItemCategory[4])}
+          on:mouseout={() => displayItemNames('')}
+          on:focus={() => displayItemNames($gridItemCategory[4])}
+          on:blur={() => displayItemNames('')}>
+          {$gridItemCategory[4]}
+        </span>
+      </div>
+      <div class="grid-item">
+        {#if $gridItemName[4]}
+          {$gridItemName[4]}
+        {/if}
+      </div>
+      <div class="grid-item">
+        <span
+          on:mouseover={() => displayItemNames($gridItemCategory[5])}
+          on:mouseout={() => displayItemNames('')}
+          on:focus={() => displayItemNames($gridItemCategory[5])}
+          on:blur={() => displayItemNames('')}>
+          {$gridItemCategory[5]}
+        </span>
+      </div>
+      <div class="grid-item">
+        {#if $gridItemName[5]}
+          {$gridItemName[5]}
+          {/if}
+      </div>
+      <div class="grid-item">
+        <span
+          on:mouseover={() => displayItemNames($gridItemCategory[6])}
+          on:mouseout={() => displayItemNames('')}
+          on:focus={() => displayItemNames($gridItemCategory[6])}
+          on:blur={() => displayItemNames('')}>
+          {$gridItemCategory[6]}
+        </span>
+      </div>
+      <div class="grid-item">
+        {#if $gridItemName[6]}
+          {$gridItemName[6]}
+        {/if}
+      </div>
+      <div class="grid-item">
+        <span
+          on:mouseover={() => displayItemNames($gridItemCategory[7])}
+          on:mouseout={() => displayItemNames('')}
+          on:focus={() => displayItemNames($gridItemCategory[7])}
+          on:blur={() => displayItemNames('')}>
+          {$gridItemCategory[7]}
+        </span>
+      </div>
+      <div class="grid-item">
+        {#if $gridItemName[7]}
+          {$gridItemName[7]}
+        {/if}
+      </div>
     </div>
     <div class="text-area-container">
     <textarea class="text-area" rows="2" style="width: 80%;" placeholder="Enter your text"></textarea>
