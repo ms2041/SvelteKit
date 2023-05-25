@@ -28,6 +28,15 @@ h1 {
   cursor: pointer;
 }
 
+.invisible-button-dark {
+  background: none;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 0;
+  cursor: pointer;
+}
+
 * {
   -webkit-user-select: none;
   -moz-user-select: none;

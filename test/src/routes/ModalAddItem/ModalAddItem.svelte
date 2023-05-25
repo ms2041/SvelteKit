@@ -1,6 +1,6 @@
 <script>
   import { writable } from 'svelte/store';
-  import { showModal, hideModal, modal, gridItemCategory, gridItemName, displayItemNames, toggleItemNames } from './ModalAddItem'
+  import { showModal, hideModal, modal, gridItemCategory, gridItemName, displayItemNames, toggleItemNames, selectItem } from './ModalAddItem'
 </script>
 
 <style>
@@ -77,7 +77,12 @@
   .grid-item span:hover {
     font-weight: bold;
     cursor: pointer;
-}
+  }
+
+  .grid-item-name:hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
 
 .grid-heading {
     /*border: 1px solid #282828;*/
@@ -125,15 +130,17 @@
           on:mouseover={() => displayItemNames($gridItemCategory[0])}
           on:mouseout={() => displayItemNames('')}
           on:focus={() => displayItemNames($gridItemCategory[0])}
-          on:blur={() => displayItemNames('')}>
+          on:blur={() => displayItemNames('')}
+          on:click={() => toggleItemNames($gridItemCategory[0])}>
           {$gridItemCategory[0]}
         </span>
       </div>
-      <div class="grid-item">
+      <button class="grid-item invisible-button-dark">
         {#if $gridItemName[0]}
-          {$gridItemName[0]}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <span class="grid-item-name" on:click={() => selectItem('0')}>{$gridItemName[0]}</span>
         {/if}
-      </div>
+      </button>
       <div class="grid-item">
         <span
           on:mouseover={() => displayItemNames($gridItemCategory[1])}
@@ -145,7 +152,8 @@
       </div>
       <div class="grid-item">
         {#if $gridItemName[1]}
-          {$gridItemName[1]}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <span class="grid-item-name" on:click={() => selectItem('1')}>{$gridItemName[1]}</span>
         {/if}
       </div>
       <div class="grid-item">
@@ -159,7 +167,8 @@
       </div>
       <div class="grid-item">
         {#if $gridItemName[2]}
-          {$gridItemName[2]}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <span class="grid-item-name" on:click={() => selectItem('2')}>{$gridItemName[2]}</span>
         {/if}
       </div>
       <div class="grid-item">
@@ -173,7 +182,8 @@
       </div>
       <div class="grid-item">
         {#if $gridItemName[3]}
-          {$gridItemName[3]}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <span class="grid-item-name" on:click={() => selectItem('3')}>{$gridItemName[3]}</span>
         {/if}
       </div>
       <div class="grid-item">
@@ -187,7 +197,8 @@
       </div>
       <div class="grid-item">
         {#if $gridItemName[4]}
-          {$gridItemName[4]}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <span class="grid-item-name" on:click={() => selectItem('4')}>{$gridItemName[4]}</span>
         {/if}
       </div>
       <div class="grid-item">
@@ -201,8 +212,9 @@
       </div>
       <div class="grid-item">
         {#if $gridItemName[5]}
-          {$gridItemName[5]}
-          {/if}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <span class="grid-item-name" on:click={() => selectItem('5')}>{$gridItemName[5]}</span>
+        {/if}
       </div>
       <div class="grid-item">
         <span
@@ -215,7 +227,8 @@
       </div>
       <div class="grid-item">
         {#if $gridItemName[6]}
-          {$gridItemName[6]}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <span class="grid-item-name" on:click={() => selectItem('6')}>{$gridItemName[6]}</span>
         {/if}
       </div>
       <div class="grid-item">
@@ -229,7 +242,8 @@
       </div>
       <div class="grid-item">
         {#if $gridItemName[7]}
-          {$gridItemName[7]}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <span class="grid-item-name" on:click={() => selectItem('7')}>{$gridItemName[7]}</span>
         {/if}
       </div>
     </div>

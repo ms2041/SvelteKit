@@ -1,7 +1,6 @@
 import { writable } from 'svelte/store';
 import { items } from '../oddpendium';
-
-let toggleValue = false;
+import { addEquipment } from '../stores';
 
 // Writable store instance for the modal
 export const modal = writable(false);
@@ -42,22 +41,32 @@ export function extractCategories(items) {
 }
 
 export function displayItemNames(category) {
+  let categoryClicked;
+  toggle.subscribe(value => {
+    categoryClicked = value;
+    console.log('Current value:', categoryClicked);
+  });
   console.log('displayItemName: ', category);
   const itemArray = [];
-  if (category == '') {
-    // Set itemArray to null if toggle set to false.
-    gridItemName.update(arr => arr.map(() => null));
-  } else {
-    for (const item of items) {
-      if (item.category == category) {
-        if (item.selection.length > 0) {
-          for (let i=0; i< item.selection.length; i++) {
-            itemArray.push(item.selection[i].name);
+  if (!categoryClicked) {
+    if (category == '') {
+      // Set itemArray to null if toggle set to false.
+      if (!categoryClicked) { // Remove item names if toggle == false.
+        gridItemName.update(arr => arr.map(() => null));
+      }
+    } else {
+      console.log('Decision here: ',categoryClicked, category);
+      for (const item of items) {
+        if (item.category == category) {
+          if (item.selection.length > 0) {
+            for (let i=0; i< item.selection.length; i++) {
+              itemArray.push(item.selection[i].name);
+            }
+          } else {
+            itemArray.push(item.selection[0]);
           }
-        } else {
-          itemArray.push(item.selection[0]);
-        }
-      } 
+        } 
+      }
     }
     console.log('displayItemName ', category, itemArray);
     gridItemName.set(itemArray);
@@ -66,17 +75,23 @@ export function displayItemNames(category) {
 }
 
 export function toggleItemNames(category) {
-  toggle.subscribe(toggleValue => {
-    console.log('Current value:', toggleValue);
+  let categoryClicked;
+  toggle.subscribe(value => {
+    categoryClicked = value;
+    console.log('Current value:', value, categoryClicked);
   });
-  if (!toggleValue) {
+  if (!categoryClicked) {
     toggle.set(true);
     console.log('Set toggle to true');
   } else {
     toggle.set(false);
     console.log('Set toggle to false');
   }
-  toggle.subscribe(toggleValue => {
-    console.log('New value:', toggleValue);
+  toggle.subscribe(value => {
+    console.log('New value:', value);
   });
+}
+
+export function selectItem(slot) {
+  console.log('selectItem: ', slot);
 }
