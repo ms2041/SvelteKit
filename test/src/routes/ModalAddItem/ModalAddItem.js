@@ -5,14 +5,19 @@ import { addEquipment } from '../stores';
 // Writable store instance for the modal
 export const modal = writable(false);
 
-// Writable store toggle for the item names
-export const toggle = writable(false);
+// Writable store clicked for the item names
+export const clicked = writable(false);
 
 // Writable store that is mapped to the list of categories.
 export const gridItemCategory = writable(['', '', '', '', '', '', '', '']);
 
 // Writable store that is mapped to the list of names.
 export const gridItemName = writable(['', '', '', '', '', '', '', '']);
+
+// Writable store that is mapped to the list of names.
+export const boldCategory = writable([false, false, false, false, false, false, false, false]);
+export const boldItem = writable([false, false, false, false, false, false, false, false]);
+
 
 export function showModal() {
   console.log('Show Modal');
@@ -40,32 +45,74 @@ export function extractCategories(items) {
   return categories;
 }
 
-export function displayItemNames(category) {
+export function boldCategoryField(index)
+{
+  console.log('boldCategoryField ', index);
+  boldCategory.update(arr => {
+    arr[index] = true; // Set the indexth element to true
+    return arr; // Return the updated array
+  });
+}
+
+export function unboldCategoryField(index)
+{
+  console.log('unboldCategoryField ', index);
+  boldCategory.update(arr => {
+    arr[index] = false; // Set the indexth element to be false.
+    return arr; // Return the updated array
+  });
+}
+
+export function boldItemField(index)
+{
+  console.log('boldItemField ', index);
+  boldItem.update(arr => {
+    arr[index] = true; // Set the indexth element to true
+    return arr; // Return the updated array
+  });
+}
+
+export function unboldItemField(index)
+{
+  console.log('unboldItemField ', index);
+  boldItem.update(arr => {
+    arr[index] = false; // Set the indexth element to be false.
+    return arr; // Return the updated array
+  });
+}
+
+export function displayItemNames(category, index) {
+  // If a category is clicked, all mouseovers+bolds are disabled except for current slot.
   let categoryClicked;
-  toggle.subscribe(value => {
+  clicked.subscribe(value => {
     categoryClicked = value;
     console.log('Current value:', categoryClicked);
   });
-  console.log('displayItemName: ', category);
+  console.log('displayItemName: ', category, index);
   const itemArray = [];
   if (!categoryClicked) {
-    if (category == '') {
-      // Set itemArray to null if toggle set to false.
-      if (!categoryClicked) { // Remove item names if toggle == false.
-        gridItemName.update(arr => arr.map(() => null));
-      }
-    } else {
+    if (category != '') {
       console.log('Decision here: ',categoryClicked, category);
+      boldCategoryField(index);
       for (const item of items) {
         if (item.category == category) {
           if (item.selection.length > 0) {
+            // There is more than 1 item per category.
             for (let i=0; i< item.selection.length; i++) {
               itemArray.push(item.selection[i].name);
             }
           } else {
+            // There is only 1 item of that category, so push the 0th element.
             itemArray.push(item.selection[0]);
           }
         } 
+      }
+    } else {
+      // Set itemArray to null if clicked set to false.
+      unboldCategoryField(index);
+      console.log('boldCategory set to false ', index);
+      if (!categoryClicked) { // Remove item names if clicked == false.
+        gridItemName.update(arr => arr.map(() => null));
       }
     }
     console.log('displayItemName ', category, itemArray);
@@ -74,20 +121,20 @@ export function displayItemNames(category) {
   }
 }
 
-export function toggleItemNames(category) {
+export function toggleClicked(category) {
   let categoryClicked;
-  toggle.subscribe(value => {
+  clicked.subscribe(value => {
     categoryClicked = value;
     console.log('Current value:', value, categoryClicked);
   });
   if (!categoryClicked) {
-    toggle.set(true);
-    console.log('Set toggle to true');
+    clicked.set(true);
+    console.log('Set clicked to true');
   } else {
-    toggle.set(false);
-    console.log('Set toggle to false');
+    clicked.set(false);
+    console.log('Set clicked to false');
   }
-  toggle.subscribe(value => {
+  clicked.subscribe(value => {
     console.log('New value:', value);
   });
 }
