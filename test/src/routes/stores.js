@@ -165,6 +165,13 @@ export function addEquipment(slot) {
   console.log('Equipment slots shifted ', slot, player.equipment);
 }
 
+export function addItem(item) {
+  // Find first empty slot
+  player.equipment[player.equipment.length] = item;
+  console.log('addItem ', player.equipment);
+  updateEquipment(player);
+}
+
 export function updateEquipment(player) {
   // equipmentArray is a temporary variable to hold gridItemEquipment data.
   let equipmentArray = ['','','','','','','','','','','',''];

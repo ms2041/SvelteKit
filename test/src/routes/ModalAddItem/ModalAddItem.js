@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import { items } from '../oddpendium';
-import { addEquipment } from '../stores';
+import { addItem } from '../stores';
 
 // Writable store instance for the modal
 export const modal = writable(false);
@@ -18,6 +18,7 @@ export const gridItemName = writable(['', '', '', '', '', '', '', '']);
 export const boldCategory = writable([false, false, false, false, false, false, false, false]);
 export const boldItem = writable([false, false, false, false, false, false, false, false]);
 
+export const selectedItem = writable();
 
 export function showModal() {
   console.log('Show Modal');
@@ -139,6 +140,24 @@ export function toggleClicked(category) {
   });
 }
 
-export function selectItem(slot) {
-  console.log('selectItem: ', slot);
+export function selectItem(slot, itemName) {
+  console.log('selectItem: ', slot, itemName);
+  for (const item of items) {
+    for (let i=0; i< item.selection.length; i++) {
+      if (item.selection[i].name == itemName) {
+        selectedItem.set(item);
+        console.log('selectItem: Item found', item);
+      }
+    }
+  }
+}
+
+export function saveItem() {
+  let currentValue;
+  const unsubscribe = selectedItem.subscribe(value => {
+    currentValue = value;
+  });
+  addItem(currentValue.selection[0].name)
+
+  console.log('saveItem: ', currentValue)
 }

@@ -14,7 +14,8 @@
     boldCategoryField,
     unboldCategoryField,
     boldItemField,
-    unboldItemField
+    unboldItemField,
+    saveItem
     } from './ModalAddItem'
 </script>
 
@@ -155,7 +156,7 @@
           class:is-bold={$boldItem[0]}
           on:mouseover={() => boldItemField(0)}
           on:mouseout={() => unboldItemField(0)}
-          on:click={() => selectItem('0')}>{$gridItemName[0]}</span>
+          on:click={() => selectItem('0', $gridItemName[0])}>{$gridItemName[0]}</span>
         {/if}
       </button>
       <div class="grid-item">
@@ -178,7 +179,7 @@
           class:is-bold={$boldItem[1]}
           on:mouseover={() => boldItemField(1)}
           on:mouseout={() => unboldItemField(1)}
-          on:click={() => selectItem('1')}>{$gridItemName[1]}</span>
+          on:click={() => selectItem('1', $gridItemName[1])}>{$gridItemName[1]}</span>
         {/if}
       </button>
       <div class="grid-item">
@@ -201,7 +202,7 @@
           class:is-bold={$boldItem[2]}
           on:mouseover={() => boldItemField(2)}
           on:mouseout={() => unboldItemField(2)}
-          on:click={() => selectItem('2')}>{$gridItemName[2]}</span>
+          on:click={() => selectItem('2', $gridItemName[2])}>{$gridItemName[2]}</span>
         {/if}
       </button>
       <div class="grid-item">
@@ -224,7 +225,7 @@
           class:is-bold={$boldItem[3]}
           on:mouseover={() => boldItemField(3)}
           on:mouseout={() => unboldItemField(3)}
-          on:click={() => selectItem('3')}>{$gridItemName[3]}</span>
+          on:click={() => selectItem('3', $gridItemName[3])}>{$gridItemName[3]}</span>
         {/if}
       </button>
       <div class="grid-item">
@@ -247,7 +248,7 @@
           class:is-bold={$boldItem[4]}
           on:mouseover={() => boldItemField(4)}
           on:mouseout={() => unboldItemField(4)}
-          on:click={() => selectItem('4')}>{$gridItemName[4]}</span>
+          on:click={() => selectItem('4', $gridItemName[4])}>{$gridItemName[4]}</span>
         {/if}
       </button>
       <div class="grid-item">
@@ -270,7 +271,7 @@
           class:is-bold={$boldItem[5]}
           on:mouseover={() => boldItemField(5)}
           on:mouseout={() => unboldItemField(5)}
-          on:click={() => selectItem('5')}>{$gridItemName[5]}</span>
+          on:click={() => selectItem('5', $gridItemName[5])}>{$gridItemName[5]}</span>
         {/if}
       </button>
       <div class="grid-item">
@@ -293,7 +294,7 @@
           class:is-bold={$boldItem[6]}
           on:mouseover={() => boldItemField(6)}
           on:mouseout={() => unboldItemField(6)}
-          on:click={() => selectItem('6')}>{$gridItemName[6]}</span>
+          on:click={() => selectItem('6', $gridItemName[6])}>{$gridItemName[6]}</span>
         {/if}
       </button>
       <div class="grid-item">
@@ -316,7 +317,7 @@
           class:is-bold={$boldItem[7]}
           on:mouseover={() => boldItemField(7)}
           on:mouseout={() => unboldItemField(7)}
-          on:click={() => selectItem('7')}>{$gridItemName[7]}</span>
+          on:click={() => selectItem('7', $gridItemName[7])}>{$gridItemName[7]}</span>
         {/if}
       </button>
     </div>
@@ -325,7 +326,10 @@
     </div>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="close" on:click={()=>hideModal()}>&times;</div>
-    <button class="save" on:click={() => hideModal()}>Save</button>
+    <button class="save" on:click={() => {
+      saveItem();
+      hideModal();
+      }}>Save</button>
   </div>
 </div>
 {/if}
