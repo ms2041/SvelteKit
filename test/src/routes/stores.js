@@ -2,8 +2,7 @@
 
 import { writable } from 'svelte/store';
 import { starterPackages, arcanum, names, companionNames } from './oddpendium.js';
-//import ModalAddItem from './ModalAddItem/ModalAddItem.svelte';
-import { showModal, hideModal } from './ModalAddItem/ModalAddItem';
+import { showModal, hideModal, resetModal } from './Modal/Modal.js';
 
 // gridItems are stat stores that are mapped to divs in +layout.svelte.
 export const title = writable('INTO THE ODD');
@@ -52,7 +51,7 @@ let item = {
   cost: 0
 }
 
-//-----------------------------------------------------------------------------
+// Random number functions.
 
 function getRandomInt(max) {  
   return Math.floor(Math.random() * max);
@@ -61,7 +60,7 @@ function getRandomInt(max) {
 function getRandom3d6() {
   return (getRandomInt(6) + 1 + getRandomInt(6) + 1 + getRandomInt(6) + 1);
 }
-//-----------------------------------------------------------------------------
+// Ability functions.
 
 export function modifyAbility(ability, value) {
   switch (ability) {
@@ -111,7 +110,7 @@ export function getHighestAbility(player) {
   return Math.max(str, dex, wil);
 }
 
-//-----------------------------------------------------------------------------
+// Money functions.
 
 export function modifyMoney(denomination, value) {
   switch (denomination) {
@@ -135,7 +134,7 @@ export function updateMoney(player) {
   console.log('Update money: ', player.shillings, player.pennies, player.guilders)
 }
 
-//-----------------------------------------------------------------------------
+// Equipment functions.
 
 function reorderEquipment() {
   for (let i = player.equipment.length - 1; i >= 0; i--) {
@@ -153,9 +152,10 @@ export function removeEquipment(slot) {
   updateEquipment(player);
 }
 
-export function addEquipment(slot) {
+export function displayItemModal(slot) {
   console.log('Add equipment to slot ', slot, player.equipment);
   if ((player.equipment[slot] == null) || (player.equipment[slot] == '')) {
+    resetModal();
     showModal();
   } else {
     console.log('Equipment already in slot ', slot);
@@ -184,7 +184,7 @@ export function updateEquipment(player) {
   gridItemEquipment.set(equipmentArray);
 }
 
-//-----------------------------------------------------------------------------
+// Player sheet functions.
 
 export function getPlayerName() {
   return(names[getRandomInt(names.length)]);

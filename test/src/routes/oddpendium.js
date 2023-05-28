@@ -713,178 +713,239 @@ export const companionNames = [
 export const items = [
   {
     category: 'Hand Weapon',
-    item: 0,
-    selection:[
-      {
-        name: 'Dagger',
-        description: 'Silent but deadly. Can be thrusted or thrown.',
-      },
-      {
-        name: 'Sword',
-        description: 'Classic.'
-      },
-      {
-        name: 'Pistol',
-        description: 'A flintlock can be loaded and fired in 20 seconds.'
-      },
-      {
-        name: 'Baton',
-        description: 'Made of wood, commonly used by militia.'
-      }
-    ],
-    bulky: false,
+    name: 'Sword',
+    description: 'Classic.',
+    slots: 1,
     number: 0,
-    damage: [6, 6, 6, 6],
+    damage: 6,
+    armour: 0,
+    cost: '2S'
+  },
+  {
+    category: 'Hand Weapon',
+    name: 'Dagger',
+    description: 'Silent but deadly. Can be thrusted or thrown.',
+    slots: 1,
+    number: 0,
+    damage: 6,
+    armour: 0,
+    cost: '2S'
+  },
+  {
+    category: 'Hand Weapon',
+    name: 'Pistol',
+    description: 'A flintlock can be loaded and fired in 20 seconds.',
+    slots: 1,
+    number: 0,
+    damage: 6,
+    armour: 0,
+    cost: '2S'
+  },
+  {
+    category: 'Hand Weapon',
+    name: 'Baton',
+    description: 'Mad of wood, commonly used by militia.',
+    slots: 1,
+    number: 0,
+    damage: 6,
     armour: 0,
     cost: '2S'
   },
   {
     category: 'Field Weapon',
-    item: 0,
-    selection:[
-      {
-        name: 'Musket',
-        description: '6ft long and can be loaded with shot or ball.',
-      },
-      {
-        name: 'Brace of Pistols',
-        description: 'A two-handed assault tactic.'
-      },
-      {
-        name: 'Halberd',
-        description: 'An axe on a pole. Very versatile.'
-      },
-      {
-        name: 'Rapier and Dagger',
-        description: 'A classic combination. The nmain-gauche is used for parrying.',
-      }
-    ],
-    bulky: true,
+    name: 'Musket',
+    description: '6ft long and can be loaded with shot or ball.',
+    slots: 1,
     number: 0,
-    damage: [8, 8, 8, 8],
+    damage: 8,
+    armour: 0,
+    cost: '10S'
+  },
+  {
+    category: 'Field Weapon',
+    name: 'Brace of Pistols',
+    description: 'A two-handed assault tactic.',
+    slots: 1,
+    number: 0,
+    damage: 8,
+    armour: 0,
+    cost: '10S'
+  },
+  {
+    category: 'Field Weapon',
+    name: 'Halberd',
+    description: 'An axe on a pole. Very versatile.',
+    slots: 1,
+    number: 0,
+    damage: 8,
+    armour: 0,
+    cost: '10S'
+  },
+  {
+    category: 'Field Weapon',
+    name: 'Rapier and Dagger',
+    description: 'A classic combination. The nmain-gauche is used for parrying.',
+    slots: 1,
+    number: 0,
+    damage: 8,
     armour: 0,
     cost: '10S'
   },
   {
     category: 'Modern Armour',
-    item: 0,
-    selection: [
-      {
-        name: 'Cuirass',
-        description: 'Chestplate and back piece, weighing in excess of 10lbs.',
-      },
-      {
-        name: 'Helm',
-        description: 'The pot helmet or morion is standard issue in most modern armies.'
-      },
-      {
-        name: 'Buckler',
-        description: 'Often combined with a rapier or sword, it can be used in defence and offence.'
-      }
-    ],
+    name: 'Cuirass',
+    description: 'Chestplate and back piece, weighing in excess of 10lbs.',
+    slots: 1,
     bulky: false,
     number: 0,
     damage: 0,
-    armour: [1, 1, 1],
+    armour: 1,
+    cost: '50S'
+  },
+  {
+    category: 'Modern Armour',
+    name: 'Helm',
+    description: 'The pot helmet or morion is standard issue in most modern armies.',
+    slots: 1,
+    bulky: false,
+    number: 0,
+    damage: 0,
+    armour: 1,
+    cost: '50S'
+  },
+  {
+    category: 'Modern Armour',
+    name: 'Buckler',
+    description: 'Often combined with a rapier or sword, it can be used in defence and offence.',
+    slots: 1,
+    bulky: false,
+    number: 0,
+    damage: 0,
+    armour: 1,
     cost: '50S'
   },
   {
     category: 'Explosive',
-    item: 0,
-    selection: [
-      {
-        name: 'Grenade',
-        description: 'Cricket ball sized bomb, filled with black powder, used by grenadiers.',
-      },
-      {
-        name: 'Rocket',
-        description: 'A grenade on a stick.'
-      },
-      {
-        name: 'Smoke-bomb',
-        description: 'Combustable device that causes confusion. Attacks through the smoke are Impaired.'
-      },
-      {
-        name: 'Flashbang',
-        description: 'Momentarily blinds anyone that fails a DEX Save.'
-      }
-    ],
-    bulky: false,
+    name: 'Grenade',
+    description: 'Cricket ball sized bomb, filled with black powder, used by grenadiers.',
+    slots: 1,
     number: 0,
-    damage: [10, 10, 0, 0],
+    damage: 10,
+    armour: 0,
+    cost: '20S'
+  },
+  {
+    category: 'Explosive',
+    name: 'Rocket',
+    description: 'A grenade on a stick.',
+    slots: 1,
+    number: 0,
+    damage: 10,
+    armour: 0,
+    cost: '20S'
+  },
+  {
+    category: 'Explosive',
+    name: 'Smoke-bomb',
+    description: 'Combustable device that causes confusion. Attacks through the smoke are Impaired.',
+    slots: 1,
+    number: 0,
+    damage: 10,
+    armour: 0,
+    cost: '20S'
+  },
+  {
+    category: 'Explosive',
+    name: 'Flashbang',
+    description: 'Momentarily blinds anyone that fails a DEX Save.',
+    slots: 1,
+    number: 0,
+    damage: 10,
     armour: 0,
     cost: '20S'
   },
   {
     category: 'Chemical',
-    item: 0,
-    selection: [
-      {
-      name: 'Poison',
-      description: 'Lose 20 STR if consumed.'
-      },
-      {
-        name: 'Acid',
-        description: 'D6 Damage, burns through most materials.'
-      }
-    ],
-    bulky: false,
+    name: 'Poison',
+    description: 'Lose 20 STR if consumed.',
+    slots: 1,
     number: 0,
-    damage: [20, 6],
+    damage: 20,
+    armour: 0,
+    cost: '10S'
+  },
+  {
+    category: 'Chemical',
+    name: 'Acid',
+    description: 'D6 Damage, burns through most materials.',
+    slots: 1,
+    damage: 20,
     armour: 0,
     cost: '10S'
   },
   {
     category: 'Medicine',
-    item: 0,
-    selection:[
-      {
-        name: 'Antitoxin',
-        description: 'Neutralises most toxins.'
-      }
-    ],
-    bulky: false,
+    name: 'Antitoxin',
+    description: 'Neutralises most toxins.',
+    slots: 1,
     number: 0,
-    damage: [0],
+    damage: 0,
     armour: 0,
     cost: '10S'
   },
   {
     category:'Tool',
-    item: 0,
-    selection: [
-      {
-        name: 'Pitchfork',
-        description: 'Useful for hunting witches.'
-      },
-      {
-        name: 'Barstool',
-        description: 'Would not be my weapon of choice, but will do in a pinch.'
-      },
-      {
-        name: 'Rake',
-        description: 'Especially potent versus demons.'
-      },
-      {
-        name: 'Lockpicks',
-        description: 'Can open most doors and padlocks.'
-      }],
-    bulky: true,
+    name: 'Pitchfork',
+    description: 'Useful for hunting witches.',
+    name: 'Barstool',
+    description: 'Would not be my weapon of choice, but will do in a pinch.',
+    name: 'Rake',
+    description: 'Especially potent versus demons.',
+    name: 'Lockpicks',
+    description: 'Can open most doors and padlocks.',
+    slots: 1,
     number: 0,
-    damage: [6, 6, 6, 0],
+    damage: 6,
+    armour: 0,
+    cost: '1S'
+  },
+  {
+    category:'Tool',
+    name: 'Barstool',
+    description: 'Would not be my weapon of choice, but will do in a pinch.',
+    slots: 1,
+    number: 0,
+    damage: 6,
+    armour: 0,
+    cost: '1S'
+  },
+  {
+    category:'Tool',
+    name: 'Rake',
+    description: 'Especially potent versus demons.',
+    slots: 1,
+    number: 0,
+    damage: 6,
+    armour: 0,
+    cost: '1S'
+  },
+  {
+    category:'Tool',
+    name: 'Lockpicks',
+    description: 'Can open most doors and padlocks.',
+    slots: 1,
+    number: 0,
+    damage: 0,
     armour: 0,
     cost: '1S'
   },
   {
     category: 'Loot',
-    item: 0,
-    selection: [{
-      name: 'Elaborate Fashion',
-      description: 'Fine tailored clothing.'
-    }],
-    bulky: false,
+    name: 'Elaborate Fashion',
+    description: 'Fine tailored clothing.',
+    slots: 1,
     number: 0,
-    damage: [0],
+    damage: 0,
     armour: 0,
     cost: '10S'
   },

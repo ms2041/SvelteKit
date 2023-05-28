@@ -7,16 +7,14 @@
     gridItemCategory, 
     gridItemName, 
     displayItemNames, 
-    toggleClicked, 
+    selectCategory, 
     selectItem, 
-    boldCategory, 
-    boldItem, 
-    boldCategoryField,
-    unboldCategoryField,
-    boldItemField,
-    unboldItemField,
+    boldSelectedItem,
+    unboldSelectedItem,
+    categoryIsBold,
+    itemIsBold,
     saveItem
-    } from './ModalAddItem'
+    } from './Modal'
 </script>
 
 <style>
@@ -139,12 +137,12 @@
       <div class="grid-item">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
-          class:is-bold={$boldCategory[0]}
+          class:is-bold={$categoryIsBold[0]}
           on:mouseover={() => displayItemNames($gridItemCategory[0], 0)}
           on:mouseout={() => displayItemNames('', 0)}
           on:focus={() => displayItemNames($gridItemCategory[0], 0)}
           on:blur={() => displayItemNames('', 0)}
-          on:click={() => toggleClicked($gridItemCategory[0])}>
+          on:click={() => selectCategory($gridItemCategory[0])}>
           {$gridItemCategory[0]}
         </span>
       </div>
@@ -153,21 +151,21 @@
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
           <span
-          class:is-bold={$boldItem[0]}
-          on:mouseover={() => boldItemField(0)}
-          on:mouseout={() => unboldItemField(0)}
+          class:is-bold={$itemIsBold[0]}
+          on:mouseover={() => boldSelectedItem(0)}
+          on:mouseout={() => unboldSelectedItem(0)}
           on:click={() => selectItem('0', $gridItemName[0])}>{$gridItemName[0]}</span>
         {/if}
       </button>
       <div class="grid-item">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
-          class:is-bold={$boldCategory[1]}
+          class:is-bold={$categoryIsBold[1]}
           on:mouseover={() => displayItemNames($gridItemCategory[1], 1)}
           on:mouseout={() => displayItemNames('', 1)}
           on:focus={() => displayItemNames($gridItemCategory[1], 1)}
           on:blur={() => displayItemNames('', 1)}
-          on:click={() => toggleClicked($gridItemCategory[1])}>
+          on:click={() => selectCategory($gridItemCategory[1])}>
           {$gridItemCategory[1]}
         </span>
       </div>
@@ -176,21 +174,21 @@
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
           <span
-          class:is-bold={$boldItem[1]}
-          on:mouseover={() => boldItemField(1)}
-          on:mouseout={() => unboldItemField(1)}
+          class:is-bold={$itemIsBold[1]}
+          on:mouseover={() => boldSelectedItem(1)}
+          on:mouseout={() => unboldSelectedItem(1)}
           on:click={() => selectItem('1', $gridItemName[1])}>{$gridItemName[1]}</span>
         {/if}
       </button>
       <div class="grid-item">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
-          class:is-bold={$boldCategory[2]}
+          class:is-bold={$categoryIsBold[2]}
           on:mouseover={() => displayItemNames($gridItemCategory[2], 2)}
           on:mouseout={() => displayItemNames('', 2)}
           on:focus={() => displayItemNames($gridItemCategory[2], 2)}
           on:blur={() => displayItemNames('', 2)}
-          on:click={() => toggleClicked($gridItemCategory[2])}>
+          on:click={() => selectCategory($gridItemCategory[2])}>
           {$gridItemCategory[2]}
         </span>
       </div>
@@ -199,21 +197,21 @@
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
           <span
-          class:is-bold={$boldItem[2]}
-          on:mouseover={() => boldItemField(2)}
-          on:mouseout={() => unboldItemField(2)}
+          class:is-bold={$itemIsBold[2]}
+          on:mouseover={() => boldSelectedItem(2)}
+          on:mouseout={() => unboldSelectedItem(2)}
           on:click={() => selectItem('2', $gridItemName[2])}>{$gridItemName[2]}</span>
         {/if}
       </button>
       <div class="grid-item">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
-          class:is-bold={$boldCategory[3]}
+          class:is-bold={$categoryIsBold[3]}
           on:mouseover={() => displayItemNames($gridItemCategory[3], 3)}
           on:mouseout={() => displayItemNames('', 3)}
           on:focus={() => displayItemNames($gridItemCategory[3], 3)}
           on:blur={() => displayItemNames('', 3)}
-          on:click={() => toggleClicked($gridItemCategory[3])}>
+          on:click={() => selectCategory($gridItemCategory[3])}>
             {$gridItemCategory[3]}
         </span>
       </div>
@@ -222,21 +220,21 @@
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
           <span
-          class:is-bold={$boldItem[3]}
-          on:mouseover={() => boldItemField(3)}
-          on:mouseout={() => unboldItemField(3)}
+          class:is-bold={$itemIsBold[3]}
+          on:mouseover={() => boldSelectedItem(3)}
+          on:mouseout={() => unboldSelectedItem(3)}
           on:click={() => selectItem('3', $gridItemName[3])}>{$gridItemName[3]}</span>
         {/if}
       </button>
       <div class="grid-item">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
-          class:is-bold={$boldCategory[4]}
+          class:is-bold={$categoryIsBold[4]}
           on:mouseover={() => displayItemNames($gridItemCategory[4], 4)}
           on:mouseout={() => displayItemNames('', 4)}
           on:focus={() => displayItemNames($gridItemCategory[4], 4)}
           on:blur={() => displayItemNames('', 4)}
-          on:click={() => toggleClicked($gridItemCategory[4])}>
+          on:click={() => selectCategory($gridItemCategory[4])}>
           {$gridItemCategory[4]}
         </span>
       </div>
@@ -245,21 +243,21 @@
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
           <span
-          class:is-bold={$boldItem[4]}
-          on:mouseover={() => boldItemField(4)}
-          on:mouseout={() => unboldItemField(4)}
+          class:is-bold={$itemIsBold[4]}
+          on:mouseover={() => boldSelectedItem(4)}
+          on:mouseout={() => unboldSelectedItem(4)}
           on:click={() => selectItem('4', $gridItemName[4])}>{$gridItemName[4]}</span>
         {/if}
       </button>
       <div class="grid-item">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
-          class:is-bold={$boldCategory[5]}
+          class:is-bold={$categoryIsBold[5]}
           on:mouseover={() => displayItemNames($gridItemCategory[5], 5)}
           on:mouseout={() => displayItemNames('', 5)}
           on:focus={() => displayItemNames($gridItemCategory[5], 5)}
           on:blur={() => displayItemNames('', 5)}
-          on:click={() => toggleClicked($gridItemCategory[5])}>
+          on:click={() => selectCategory($gridItemCategory[5])}>
           {$gridItemCategory[5]}
         </span>
       </div>
@@ -268,21 +266,21 @@
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
           <span
-          class:is-bold={$boldItem[5]}
-          on:mouseover={() => boldItemField(5)}
-          on:mouseout={() => unboldItemField(5)}
+          class:is-bold={$itemIsBold[5]}
+          on:mouseover={() => boldSelectedItem(5)}
+          on:mouseout={() => unboldSelectedItem(5)}
           on:click={() => selectItem('5', $gridItemName[5])}>{$gridItemName[5]}</span>
         {/if}
       </button>
       <div class="grid-item">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
-          class:is-bold={$boldCategory[6]}
+          class:is-bold={$categoryIsBold[6]}
           on:mouseover={() => displayItemNames($gridItemCategory[6], 6)}
           on:mouseout={() => displayItemNames('', 6)}
           on:focus={() => displayItemNames($gridItemCategory[6], 6)}
           on:blur={() => displayItemNames('', 6)}
-          on:click={() => toggleClicked($gridItemCategory[6])}>
+          on:click={() => selectCategory($gridItemCategory[6])}>
           {$gridItemCategory[6]}
         </span>
       </div>
@@ -291,21 +289,21 @@
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
           <span
-          class:is-bold={$boldItem[6]}
-          on:mouseover={() => boldItemField(6)}
-          on:mouseout={() => unboldItemField(6)}
+          class:is-bold={$itemIsBold[6]}
+          on:mouseover={() => boldSelectedItem(6)}
+          on:mouseout={() => unboldSelectedItem(6)}
           on:click={() => selectItem('6', $gridItemName[6])}>{$gridItemName[6]}</span>
         {/if}
       </button>
       <div class="grid-item">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
-          class:is-bold={$boldCategory[7]}
+          class:is-bold={$categoryIsBold[7]}
           on:mouseover={() => displayItemNames($gridItemCategory[7], 7)}
           on:mouseout={() => displayItemNames('', 7)}
           on:focus={() => displayItemNames($gridItemCategory[7], 7)}
           on:blur={() => displayItemNames('', 7)}
-          on:click={() => toggleClicked($gridItemCategory[7])}>
+          on:click={() => selectCategory($gridItemCategory[7])}>
           {$gridItemCategory[7]}
         </span>
       </div>
@@ -314,9 +312,9 @@
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
           <span
-          class:is-bold={$boldItem[7]}
-          on:mouseover={() => boldItemField(7)}
-          on:mouseout={() => unboldItemField(7)}
+          class:is-bold={$itemIsBold[7]}
+          on:mouseover={() => boldSelectedItem(7)}
+          on:mouseout={() => unboldSelectedItem(7)}
           on:click={() => selectItem('7', $gridItemName[7])}>{$gridItemName[7]}</span>
         {/if}
       </button>

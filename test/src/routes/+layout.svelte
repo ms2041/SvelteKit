@@ -1,8 +1,8 @@
 <script>
     import '../app.css';
     import { writable } from 'svelte/store';
-    import ModalAddItem from './ModalAddItem/ModalAddItem.svelte';
-    import { extractCategories, showModal, hideModal } from './ModalAddItem/ModalAddItem';
+    import Modal from './Modal/Modal.svelte';
+    import { extractCategories, showModal, hideModal } from './Modal/Modal';
     import { 
       title,
       playerName,
@@ -19,11 +19,11 @@
       createPlayer,
       modifyAbility,
       removeEquipment,
-      addEquipment,
+      displayItemModal,
       modifyMoney
       } from './stores';
 
-      let modalAddItemRef;
+      let modalRef;
 </script>
 
 <style>
@@ -234,13 +234,13 @@
           <div class="sub-grid-item">{$gridItemStr}</div>
         </div>
         <button class="grid-item invisible-button" id="equipmentSlot-0" on:contextmenu={() => removeEquipment(0)}
-          on:click={() => addEquipment(0)}>{$gridItemEquipment[0]}</button>
+          on:click={() => displayItemModal(0)}>{$gridItemEquipment[0]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-1" on:contextmenu={() => removeEquipment(1)}
-          on:click={() => addEquipment(1)}>{$gridItemEquipment[1]}</button>
+          on:click={() => displayItemModal(1)}>{$gridItemEquipment[1]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-2" on:contextmenu={() => removeEquipment(2)}
-          on:click={() => addEquipment(2)}>{$gridItemEquipment[2]}</button>
+          on:click={() => displayItemModal(2)}>{$gridItemEquipment[2]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-3" on:contextmenu={() => removeEquipment(3)}
-          on:click={() => addEquipment(3)}>{$gridItemEquipment[3]}</button>
+          on:click={() => displayItemModal(3)}>{$gridItemEquipment[3]}</button>
         <div class="grid-item-money">
           <button class="sub-grid-item invisible-button" id='shillings' on:contextmenu={() => modifyMoney('shillings', 1)} 
             on:click={() => modifyMoney('shillings', -1)}>{$gridItemShillings}S</button>
@@ -255,13 +255,13 @@
           <div class="sub-grid-item">{$gridItemDex}</div>
         </div>
         <button class="grid-item invisible-button" id="equipmentSlot-4" on:contextmenu={() => removeEquipment(4)}
-          on:click={() => addEquipment(4)}>{$gridItemEquipment[4]}</button>
+          on:click={() => displayItemModal(4)}>{$gridItemEquipment[4]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-5" on:contextmenu={() => removeEquipment(5)}
-          on:click={() => addEquipment(5)}>{$gridItemEquipment[5]}</button>
+          on:click={() => displayItemModal(5)}>{$gridItemEquipment[5]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-6" on:contextmenu={() => removeEquipment(6)}
-          on:click={() => addEquipment(6)}>{$gridItemEquipment[6]}</button>
+          on:click={() => displayItemModal(6)}>{$gridItemEquipment[6]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-7" on:contextmenu={() => removeEquipment(7)}
-          on:click={() => addEquipment(7)}>{$gridItemEquipment[7]}</button>
+          on:click={() => displayItemModal(7)}>{$gridItemEquipment[7]}</button>
         <div class="grid-item"></div>
         <div class="grid-item-ability">
           <button class="sub-grid-item invisible-button" id="wil" on:contextmenu={() => modifyAbility('wil', 1)} 
@@ -269,13 +269,13 @@
           <div class="sub-grid-item">{$gridItemWil}</div>
         </div>
         <button class="grid-item invisible-button" id="equipmentSlot-8" on:contextmenu={() => removeEquipment(8)}
-          on:click={() => addEquipment(8)}>{$gridItemEquipment[8]}</button>
+          on:click={() => displayItemModal(8)}>{$gridItemEquipment[8]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-9" on:contextmenu={() => removeEquipment(9)}
-          on:click={() => addEquipment(9)}>{$gridItemEquipment[9]}</button>
+          on:click={() => displayItemModal(9)}>{$gridItemEquipment[9]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-10" on:contextmenu={() => removeEquipment(10)}
-          on:click={() => {addEquipment(10); showModal()}}>{$gridItemEquipment[10]}</button>
+          on:click={() => displayItemModal(10)}>{$gridItemEquipment[10]}</button>
         <button class="grid-item invisible-button" id="equipmentSlot-11" on:contextmenu={() => removeEquipment(11)}
-          on:click={() => showModal()}>{$gridItemEquipment[11]}Show Modal</button>
+          on:click={() => displayItemModal(11)}>{$gridItemEquipment[11]}</button>
         <div class="grid-heading">COMPANION</div>
         <div class="grid-item-ability">
           <button class="sub-grid-item invisible-button" id="hp" on:contextmenu={() => modifyAbility('hp', 1)} 
@@ -288,5 +288,5 @@
         <div class="grid-item span-4" id="special-info">{$gridItemSpecialInformation}</div>
       </div>
     </div>
-    <ModalAddItem bind:this={modalAddItemRef}/>
+    <Modal bind:this={modalRef}/>
   </body>
