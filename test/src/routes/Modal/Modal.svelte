@@ -58,6 +58,8 @@
 
   .save { /* Save button. */
   margin-top: auto;
+    font-family: 'hultog.italic';
+    font-size: 24px;
     margin-bottom: 24px;
     color: black;
     cursor: pointer;
@@ -92,6 +94,7 @@
   .grid-item span.is-bold {
     font-weight: bold;
     cursor: pointer;
+    color: rgb(151, 64, 43);
   }
 
 .grid-heading {
@@ -106,7 +109,7 @@
   width: 96%;
   margin: 20px auto;
   position: absolute;
-  bottom: 20px;
+  bottom: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,7 +137,7 @@
     <!-- Grid items -->
     <div class="grid-container">
       <!-- Grid items -->
-      <div class="grid-item">
+      <button class="grid-item invisible-button-dark">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
           class:is-bold={$categoryIsBold[0]}
@@ -145,7 +148,7 @@
           on:click={() => selectCategory($gridItemCategory[0])}>
           {$gridItemCategory[0]}
         </span>
-      </div>
+      </button>
       <button class="grid-item invisible-button-dark">
         {#if $gridItemName[0]}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -157,7 +160,7 @@
           on:click={() => selectItem('0', $gridItemName[0])}>{$gridItemName[0]}</span>
         {/if}
       </button>
-      <div class="grid-item">
+      <button class="grid-item invisible-button-dark">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
           class:is-bold={$categoryIsBold[1]}
@@ -168,7 +171,7 @@
           on:click={() => selectCategory($gridItemCategory[1])}>
           {$gridItemCategory[1]}
         </span>
-      </div>
+      </button>
       <button class="grid-item invisible-button-dark">
         {#if $gridItemName[1]}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -180,7 +183,7 @@
           on:click={() => selectItem('1', $gridItemName[1])}>{$gridItemName[1]}</span>
         {/if}
       </button>
-      <div class="grid-item">
+      <button class="grid-item invisible-button-dark">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
           class:is-bold={$categoryIsBold[2]}
@@ -191,7 +194,7 @@
           on:click={() => selectCategory($gridItemCategory[2])}>
           {$gridItemCategory[2]}
         </span>
-      </div>
+      </button>
       <button class="grid-item invisible-button-dark">
         {#if $gridItemName[2]}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -203,7 +206,7 @@
           on:click={() => selectItem('2', $gridItemName[2])}>{$gridItemName[2]}</span>
         {/if}
       </button>
-      <div class="grid-item">
+      <button class="grid-item invisible-button-dark">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
           class:is-bold={$categoryIsBold[3]}
@@ -214,7 +217,7 @@
           on:click={() => selectCategory($gridItemCategory[3])}>
             {$gridItemCategory[3]}
         </span>
-      </div>
+      </button>
       <button class="grid-item invisible-button-dark">
         {#if $gridItemName[3]}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -226,7 +229,7 @@
           on:click={() => selectItem('3', $gridItemName[3])}>{$gridItemName[3]}</span>
         {/if}
       </button>
-      <div class="grid-item">
+      <button class="grid-item invisible-button-dark">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
           class:is-bold={$categoryIsBold[4]}
@@ -237,7 +240,7 @@
           on:click={() => selectCategory($gridItemCategory[4])}>
           {$gridItemCategory[4]}
         </span>
-      </div>
+      </button>
       <button class="grid-item invisible-button-dark">
         {#if $gridItemName[4]}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -249,7 +252,7 @@
           on:click={() => selectItem('4', $gridItemName[4])}>{$gridItemName[4]}</span>
         {/if}
       </button>
-      <div class="grid-item">
+      <button class="grid-item invisible-button-dark">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
           class:is-bold={$categoryIsBold[5]}
@@ -260,7 +263,7 @@
           on:click={() => selectCategory($gridItemCategory[5])}>
           {$gridItemCategory[5]}
         </span>
-      </div>
+      </button>
       <button class="grid-item invisible-button-dark">
         {#if $gridItemName[5]}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -272,7 +275,7 @@
           on:click={() => selectItem('5', $gridItemName[5])}>{$gridItemName[5]}</span>
         {/if}
       </button>
-      <div class="grid-item">
+      <button class="grid-item invisible-button-dark">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
           class:is-bold={$categoryIsBold[6]}
@@ -283,7 +286,7 @@
           on:click={() => selectCategory($gridItemCategory[6])}>
           {$gridItemCategory[6]}
         </span>
-      </div>
+      </button>
       <button class="grid-item invisible-button-dark">
         {#if $gridItemName[6]}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -295,7 +298,7 @@
           on:click={() => selectItem('6', $gridItemName[6])}>{$gridItemName[6]}</span>
         {/if}
       </button>
-      <div class="grid-item">
+      <button class="grid-item invisible-button-dark">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span
           class:is-bold={$categoryIsBold[7]}
@@ -306,7 +309,7 @@
           on:click={() => selectCategory($gridItemCategory[7])}>
           {$gridItemCategory[7]}
         </span>
-      </div>
+      </button>
       <button class="grid-item invisible-button-dark">
         {#if $gridItemName[7]}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -324,7 +327,7 @@
     </div>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="close" on:click={()=>hideModal()}>&times;</div>
-    <button class="save" on:click={() => {
+    <button class="save invisible-button-dark" on:click={() => {
       saveItem();
       hideModal();
       }}>Save</button>
