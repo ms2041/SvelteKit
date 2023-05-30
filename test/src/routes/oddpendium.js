@@ -692,7 +692,8 @@ export const names = [
   'Calamity of the Ages',
   'Klaatu Barada Nikto',
   'Magnificent Faust',
-  'Casus Belli'
+  'Casus Belli',
+  'Hungry is the Beast'
 ];
 
 export const companionNames = [
