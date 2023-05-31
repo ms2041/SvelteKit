@@ -34,6 +34,7 @@ export function showModal() {
 
 export function hideModal() {
   console.log('Hide Modal');
+  resetModal();
   modal.set(false);
   // Extra code here.
 }
@@ -55,6 +56,8 @@ export function resetModal() {
   itemIsBold.set([false, false, false, false, false, false, false, false]);
   catagorySelected.set(false);
   itemSelected.set(false);
+  gridItemName.set([false, false, false, false, false, false, false, false]);
+  gridItemCategory.set([false, false, false, false, false, false, false, false])
 }
 
 export function boldSelectedCategory(index)
@@ -126,6 +129,7 @@ export function displayItemNames(category, index) {
   console.log('displayItemName: ', category, index);
   //Dynamically generate a list of items to be displayed.
   const itemArray = [];
+  itemSelected.set(false); // Ensure that no item can be inadvertantly added.
   if (!clicked) {
     if (category != '') {
       console.log('Decision here: ', clicked, category);
@@ -197,11 +201,18 @@ export function selectItem(slot, itemName) {
 }
 
 export function saveItem() {
-  let currentValue;
-  const unsubscribe = selectedItem.subscribe(value => {
-    currentValue = value;
+  let itemValue;
+  itemSelected.subscribe(value => {
+    itemValue = value;
+    console.log('Current value:', itemValue);
   });
-  addItem(currentValue.name);
 
-  console.log('saveItem: ', currentValue)
+  if (itemValue) {
+    let currentValue;
+    const unsubscribe = selectedItem.subscribe(value => {
+      currentValue = value;
+    });
+    addItem(currentValue.name);
+    console.log('saveItem: ', currentValue)
+  }
 }
