@@ -81,7 +81,7 @@
     color:antiquewhite;
   }
 
-  #abilities {
+  #abilities { /* ABILITIES header. */
     cursor: pointer;
   }
   #abilities:hover {
@@ -93,35 +93,6 @@
   #wil,
   #hp {
     cursor: pointer;
-  }
-
-  #equipmentSlot-0,
-  #equipmentSlot-1,
-  #equipmentSlot-2,
-  #equipmentSlot-3,
-  #equipmentSlot-4,
-  #equipmentSlot-5,
-  #equipmentSlot-6,
-  #equipmentSlot-7,
-  #equipmentSlot-8,
-  #equipmentSlot-9,
-  #equipmentSlot-10,
-  #equipmentSlot-11 {
-    cursor: pointer;
-  }
-  #equipmentSlot-0:hover,
-  #equipmentSlot-1:hover,
-  #equipmentSlot-2:hover,
-  #equipmentSlot-3:hover,
-  #equipmentSlot-4:hover,
-  #equipmentSlot-5:hover,
-  #equipmentSlot-6:hover,
-  #equipmentSlot-7:hover,
-  #equipmentSlot-8:hover,
-  #equipmentSlot-9:hover,
-  #equipmentSlot-10:hover,
-  #equipmentSlot-11:hover {
-    color: rgb(185, 235, 255);
   }
 
   .grid-container {
@@ -143,6 +114,14 @@
     align-items: center;
     text-align: left;
     font-size: 16px;
+  }
+
+  .s-text { /* Select text style. */
+    font-weight: normal;
+  }
+  .s-text:hover {
+    cursor: pointer;
+    color: rgb(185, 235, 255);
   }
 
   .grid-heading {
@@ -234,13 +213,13 @@
           <div class="sub-grid-item">{$gridItemStr}</div>
         </div>
         <button class="grid-item invisible-button" id="equipmentSlot-0" on:contextmenu={() => removeEquipment(0)}
-          on:click={() => displayItemModal(0)}>{$gridItemEquipment[0]}</button>
+          on:click={() => displayItemModal(0)}><span class="s-text">{$gridItemEquipment[0]}</span></button>
         <button class="grid-item invisible-button" id="equipmentSlot-1" on:contextmenu={() => removeEquipment(1)}
-          on:click={() => displayItemModal(1)}>{$gridItemEquipment[1]}</button>
+          on:click={() => displayItemModal(1)}><span class="s-text">{$gridItemEquipment[1]}</span></button>
         <button class="grid-item invisible-button" id="equipmentSlot-2" on:contextmenu={() => removeEquipment(2)}
-          on:click={() => displayItemModal(2)}>{$gridItemEquipment[2]}</button>
+          on:click={() => displayItemModal(2)}><span class="s-text">{$gridItemEquipment[2]}</span></button>
         <button class="grid-item invisible-button" id="equipmentSlot-3" on:contextmenu={() => removeEquipment(3)}
-          on:click={() => displayItemModal(3)}>{$gridItemEquipment[3]}</button>
+          on:click={() => displayItemModal(3)}><span class="s-text">{$gridItemEquipment[3]}</span></button>
         <div class="grid-item-money">
           <button class="sub-grid-item invisible-button" id='shillings' on:contextmenu={() => modifyMoney('shillings', 1)} 
             on:click={() => modifyMoney('shillings', -1)}>{$gridItemShillings}S</button>
@@ -255,13 +234,13 @@
           <div class="sub-grid-item">{$gridItemDex}</div>
         </div>
         <button class="grid-item invisible-button" id="equipmentSlot-4" on:contextmenu={() => removeEquipment(4)}
-          on:click={() => displayItemModal(4)}>{$gridItemEquipment[4]}</button>
+          on:click={() => displayItemModal(4)}><span class="s-text">{$gridItemEquipment[4]}</span></button>
         <button class="grid-item invisible-button" id="equipmentSlot-5" on:contextmenu={() => removeEquipment(5)}
-          on:click={() => displayItemModal(5)}>{$gridItemEquipment[5]}</button>
+          on:click={() => displayItemModal(5)}><span class="s-text">{$gridItemEquipment[5]}</span></button>
         <button class="grid-item invisible-button" id="equipmentSlot-6" on:contextmenu={() => removeEquipment(6)}
-          on:click={() => displayItemModal(6)}>{$gridItemEquipment[6]}</button>
+          on:click={() => displayItemModal(6)}><span class="s-text">{$gridItemEquipment[6]}</span></button>
         <button class="grid-item invisible-button" id="equipmentSlot-7" on:contextmenu={() => removeEquipment(7)}
-          on:click={() => displayItemModal(7)}>{$gridItemEquipment[7]}</button>
+          on:click={() => displayItemModal(7)}><span class="s-text">{$gridItemEquipment[7]}</span></button>
         <div class="grid-item"></div>
         <div class="grid-item-ability">
           <button class="sub-grid-item invisible-button" id="wil" on:contextmenu={() => modifyAbility('wil', 1)} 
@@ -269,13 +248,13 @@
           <div class="sub-grid-item">{$gridItemWil}</div>
         </div>
         <button class="grid-item invisible-button" id="equipmentSlot-8" on:contextmenu={() => removeEquipment(8)}
-          on:click={() => displayItemModal(8)}>{$gridItemEquipment[8]}</button>
+          on:click={() => displayItemModal(8)}><span class="s-text">{$gridItemEquipment[8]}</span></button>
         <button class="grid-item invisible-button" id="equipmentSlot-9" on:contextmenu={() => removeEquipment(9)}
-          on:click={() => displayItemModal(9)}>{$gridItemEquipment[9]}</button>
+          on:click={() => displayItemModal(9)}><span class="s-text">{$gridItemEquipment[9]}</span></button>
         <button class="grid-item invisible-button" id="equipmentSlot-10" on:contextmenu={() => removeEquipment(10)}
-          on:click={() => displayItemModal(10)}>{$gridItemEquipment[10]}</button>
+          on:click={() => displayItemModal(10)}><span class="s-text">{$gridItemEquipment[10]}</span></button>
         <button class="grid-item invisible-button" id="equipmentSlot-11" on:contextmenu={() => removeEquipment(11)}
-          on:click={() => displayItemModal(11)}>{$gridItemEquipment[11]}</button>
+          on:click={() => displayItemModal(11)}><span class="s-text">{$gridItemEquipment[11]}</span></button>
         <div class="grid-heading">COMPANION</div>
         <div class="grid-item-ability">
           <button class="sub-grid-item invisible-button" id="hp" on:contextmenu={() => modifyAbility('hp', 1)} 
