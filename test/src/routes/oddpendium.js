@@ -693,7 +693,8 @@ export const names = [
   'Klaatu Barada Nikto',
   'Magnificent Faust',
   'Casus Belli',
-  'Hungry is the Beast'
+  'Hungry is the Beast',
+  'The Inconstant Man'
 ];
 
 export const companionNames = [

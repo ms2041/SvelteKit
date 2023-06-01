@@ -81,13 +81,6 @@
     color:antiquewhite;
   }
 
-  #abilities { /* ABILITIES header. */
-    cursor: pointer;
-  }
-  #abilities:hover {
-    color: rgb(185, 235, 255);
-  }
-
   #str,
   #dex,
   #wil,
@@ -187,22 +180,25 @@
     color: rgb(185, 235, 255);
   }
 
+  #player:hover {
+    color: rgb(185, 235, 255);
+    cursor: pointer;
+  }
+
 </style>
   
   <body class="my-body" on:contextmenu|preventDefault>
     <div class="centered-VTT">
       <div class="title"><h1>{$title}</h1></div>
       <div class="title-divider"><img src="/images/TitleLine.png" alt="Line"></div>
-      <div class="sub-title" id="player">{$playerName}</div>
+      <button class="sub-title invisible-button" id="player" on:click={() => {
+        createPlayer();
+      }}>{$playerName}</button>
       <slot></slot>
 
       <div class="grid-container">
-        <button class="grid-heading invisible-button" id="abilities" on:click={() => {
-          createPlayer();
-        }}>ABILITIES</button>
-        <div class="grid-heading" id="equipment">
-          EQUIPMENT
-        </div>
+        <div class="grid-heading" id="abilities">ABILITIES</div>
+        <div class="grid-heading" id="equipment">EQUIPMENT</div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>
